@@ -2,14 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
-import { LogClicksDirective } from './log-clicks.directive';
+import { UsersListComponent } from './users-list/users-list.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
-    LogClicksDirective
+    UsersListComponent,
+
   ],
   imports: [
     BrowserModule

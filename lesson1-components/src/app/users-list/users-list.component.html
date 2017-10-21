@@ -1,0 +1,14 @@
+<ul class="users-list">
+  <li class="item"
+      *ngFor="let user of userlist; let i = index"
+      [ngClass]="{'active': selectedIndex == i}"
+      (click)="activeItem(i)">
+    <img src="{{user.imgUrl}}" alt="">
+    <div class="wrapper">
+      <div class="name">{{user.name}}</div>
+      <div class="description">{{user.description}}</div>
+      <button (click)="getItem(i)">Remove</button>
+    </div>
+
+  </li>
+</ul>
