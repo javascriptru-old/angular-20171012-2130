@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class UserCardComponent implements OnInit {
   @Input() user;
   @Output() cardSelected: EventEmitter<any> = new EventEmitter();
+  @Output() cardHide: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
 
@@ -15,7 +16,7 @@ export class UserCardComponent implements OnInit {
   }
 
   hideCard() {
-
+    this.cardHide.emit()
   }
 
   selectCard() {

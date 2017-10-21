@@ -29,22 +29,26 @@ export class AppComponent {
 
   }];
 
-  public cardBorder: string = `0px solid blue`;
   public selectedUser = null;
-  selectUser(user) {
-    if (!this.selectedUser) {
-      this.selectedUser = user;
-      user.selected = `selected`;
-      return;
+  public selectUser(user): void {
+    switch (this.selectedUser) {
+      case null:
+        this.selectedUser = user;
+        user.selected = `selected`;
+        break;
+      case user:
+        user.selected = ``;
+        this.selectedUser = null;
+        break;
+      default:
+        this.selectedUser.selected = ``;
+        this.selectedUser = user;
+        user.selected = `selected`;
     }
-    if (this.selectedUser === user) {
-      user.selected = ``;
-      this.selectedUser = null;
-    } else  {
-      this.selectedUser.selected = ``;
-      this.selectedUser = user;
-      user.selected = `selected`;
-    }
+  }
+
+  public hideCard(user) {
+    user.visible = false;
   }
 
 }
