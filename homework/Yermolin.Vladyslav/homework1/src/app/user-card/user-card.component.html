@@ -1,14 +1,14 @@
 
-  <div class="center">
+  <div class="user-card" (click)="selectCard()">
 
     <div class="profile">
-      <button class="close-btn">x</button>
+      <button class="close-btn" (click)="hideCard">x</button>
       <div class="image">
-        <img src="http://100dayscss.com/codepen/jessica-potter.jpg" width="70" height="70" alt="Jessica Potter">
+        <img src="{{user.src}}" width="70" height="70" alt="Jessica Potter">
       </div>
 
-      <div class="name">Jessica Potter</div>
-      <div class="job">Visual Artist</div>
+      <div class="name">{{user.name}}</div>
+      <div class="job">{{user.job}}</div>
 
       <div class="actions">
         <button class="btn">Follow</button>
