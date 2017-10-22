@@ -1,0 +1,8 @@
+<div (click)="onSelect()" [ngClass]="{selected: isSelected()}">
+  <span>{{user.name}}</span>
+  <span>{{user.age}}</span>
+  <span>{{(user.mail)? user.mail: "No mail"}}</span>
+  <button (click)="onDelete()">x</button>
+</div>
+
+
