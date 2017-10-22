@@ -30,7 +30,9 @@ export class AppComponent {
     },
   ];
 
-  public removeItem($event): void {
+
+
+  public removeItem($event: number): void {
     this.userlist.splice($event, 1);
   }
 

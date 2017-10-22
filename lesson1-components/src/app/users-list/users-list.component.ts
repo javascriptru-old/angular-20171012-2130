@@ -7,19 +7,21 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 })
 export class UsersListComponent implements OnInit {
 
-  @Input() userlist;
+  @Input() userlist: Array<object>;
   @Output() removeItem: EventEmitter<object> = new EventEmitter();
 
-  public selectedIndex: number;
+  public selectedIndex;
 
 
-  public getItem(i): void {
+  public getItem(i: object): void {
     this.removeItem.emit(i);
   }
 
-  public activeItem(id: number): void {
-    this.selectedIndex = id;
+  public activeItem(item: object): void {
+    this.selectedIndex = item;
   }
+
+
 
   constructor() {
   }
