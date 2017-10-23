@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { UserService } from './user.service';
-import { UserCardComponent } from './user-card/user-card.component';
+import { UserCardComponent } from './main/user-card/user-card.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserCardComponent
+    UserCardComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule
