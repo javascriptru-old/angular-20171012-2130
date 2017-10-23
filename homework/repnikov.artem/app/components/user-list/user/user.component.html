@@ -1,0 +1,26 @@
+<div *ngFor="let user of users" class="user-item">
+    <div class="user{{ user.id === active ? ' is-active' : '' }}" (click)="setActive(user.id)">
+        <div class="user__header">
+            <div class="user__username">{{ user.username }}</div>
+            <div class="user__name user__name--header">{{ user.name }}</div>
+        </div>
+        <div class="user__content">
+            <div class="user__content__item user__work">
+                <div class="user__work__item"><span class="highlight">Company:</span> {{ user.company.name }}</div>
+                <div class="user__work__item"><span class="highlight">Bs:</span> {{ user.company.bs }}</div>
+                <div class="user__work__item"><span class="highlight">Catch phrase:</span> {{ user.company.catchPhrase }}</div>
+            </div>
+            <div class="user__content__item user__contacts">
+                <div class="user__contacts__item"><span class="highlight">Phone:</span> {{ user.phone }}</div>
+                <div class="user__contacts__item"><span class="highlight">Website:</span> {{ user.website }}</div>
+            </div>
+            <div class="user__content__item user__location">
+                <div class="user__location__item"><span class="highlight">City:</span> {{ user.address.city }}</div>
+                <div class="user__location__item"><span class="highlight">Street:</span> {{ user.address.street }}</div>
+                <div class="user__location__item"><span class="highlight">Suite:</span> {{ user.address.suite }}</div>
+                <div class="user__location__item"><span class="highlight">Zip:</span> {{ user.address.zipcode }}</div>
+            </div>
+        </div>
+        <button type="button" (click)="removeUser(user.id)" class="button user__remove-btn">X</button>
+    </div>
+</div>
