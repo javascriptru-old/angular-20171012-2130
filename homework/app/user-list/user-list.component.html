@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <ul>
+        <li class="user-list" [style.background]="(selectedUser == user) ? 'yellow' : ''" *ngFor="let user of users">
+          <app-user-card [user]="user" (userSelected)="selectedUser = user"></app-user-card>
+          <span class="pointer" (click)="removeUser(user.name)">X</span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6 border-style">
+      <h4 *ngIf="!selectedUser">Select user to show profile</h4>
+      <img *ngIf="selectedUser" src="https://randomuser.me/api/portraits/men/83.jpg" alt="">
+      <h3>{{selectedUser?.name}}</h3>
+      <p *ngIf="selectedUser">Website: {{selectedUser?.website}}</p>
+      <p *ngIf="selectedUser">Email: {{selectedUser?.email}}</p>
+      <p *ngIf="selectedUser">Phone: {{selectedUser?.phone}}</p>
+    </div>
+  </div>
+</div>

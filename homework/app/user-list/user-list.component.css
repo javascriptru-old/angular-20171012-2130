@@ -1,0 +1,19 @@
+.user-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.pointer {
+    cursor: pointer;
+}
+.border-style {
+    border: 2px solid #20c997;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.border-style img {
+    border-radius: 50%;
+}
