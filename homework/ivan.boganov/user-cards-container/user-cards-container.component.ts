@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCard } from '../models/user-card';
+import { UserCardService } from '../services/user-card-service/user-card.service';
 
 @Component({
   selector: 'app-user-cards-container',
@@ -9,7 +10,7 @@ import { UserCard } from '../models/user-card';
 export class UserCardsContainerComponent implements OnInit {
   public userCards: UserCard[];
 
-  constructor() { }
+  constructor(private userCardService: UserCardService) { }
 
 
   ngOnInit() {
@@ -18,24 +19,26 @@ export class UserCardsContainerComponent implements OnInit {
 
 
   public deleteUserCard(userCard: UserCard): void {
-    this.userCards = this.userCards.filter(uc => uc.id !== userCard.id);
+    this.userCardService.deleteUser(userCard);
   }
 
 
   private initializeUserCards(): void {
-    this.userCards = [{
-      id: 1,
-      firstName: 'Ivan',
-      lastName: 'Boganov',
-      age: 27,
-      profession: 'Programmer'
-    }, {
-      id: 2,
-      firstName: 'Leeroy',
-      lastName: 'Jenkins',
-      age: null,
-      profession: 'Internet meme'
-    }];
+    let result = this.userCardService.getUsers();
+
+    result.subscribe(
+      response => this.onSuccess(response),
+      error => this.onError(error)
+    );
   }
 
+
+  private onSuccess(response: UserCard[]): void {
+    this.userCards = response;
+  }
+
+
+  private onError(error): void {
+    console.log(error);
+  }
 }
