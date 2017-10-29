@@ -1,22 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppComponent } from './app.component';
-import { UserCardComponent } from './user-card/user-card.component';
-import { UserService } from './user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { MailBoxComponent } from './mail-box/mail-box.component';
+import { routes } from './app.routes';
+import {
+  MailListComponent,
+  MailListResolveService,
+  MailListService
+} from './mail-list';
+import { MailComponent } from './mail/mail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserCardComponent
+    LoginComponent,
+    MailListComponent,
+    MailBoxComponent,
+    MailComponent
   ],
+
   imports: [
     BrowserModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [UserService],
+
+  providers: [
+    MailListResolveService,
+    MailListService
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
