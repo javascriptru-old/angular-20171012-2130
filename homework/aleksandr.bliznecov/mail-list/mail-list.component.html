@@ -1,0 +1,4 @@
+<h2>Список писем:</h2>
+<ul *ngFor="let mail of mails; let i = index" class="list-group">
+  <li class="list-group-item" routerLink="{{i}}">{{mail?.title}}</li>
+</ul>
