@@ -1,0 +1,9 @@
+<div class="card" (click)="selectUserCard()" [style.background-color]="getUserCardBackground()">
+  <div class="container">
+    <p>Name: <b>{{userCard?.firstName}} {{userCard?.lastName}}</b></p>
+    <p>Age: <b>{{userCard?.age ? userCard.age : 'unknown'}}</b></p>
+    <p>Profession: <b>{{userCard?.profession}}</b></p>
+  </div>
+
+  <button (click)="deleteUserCard()">Delete</button>
+</div>

@@ -1,0 +1,18 @@
+<h2>Add user</h2>
+<input type="text" placeholder="Full Name" #userNameInput>
+<input type="email" value="" placeholder="Email" #userEmailInput>
+<button (click)="addUser({fullName: userNameInput.value, email: userEmailInput.value}); userNameInput.value = ''; userEmailInput.value = ''">Add</button>
+
+<br><br>
+
+<h2>User list</h2>
+<ul class="user-list">
+  <li *ngFor="let user of users" class="user-list__item">
+    <app-user-card
+      [class.is-selected]="user === selectedUser"
+      [user]="user"
+      (click)="onSelect(user)"
+      (onDelete)="deleteUser($event)"
+    ></app-user-card>
+  </li>
+</ul>

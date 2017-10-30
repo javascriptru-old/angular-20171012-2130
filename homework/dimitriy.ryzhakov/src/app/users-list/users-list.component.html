@@ -1,0 +1,9 @@
+<ul class="users-list">
+    <li class="item" *ngFor="let user of data"
+        [class.active]="user === selectedIndex">
+        <app-user  [user]="user" (removeItem)="removeItem(user)"
+                   (addActiveClass)="addActiveClass(user)"
+        >
+        </app-user>
+    </li>
+</ul>

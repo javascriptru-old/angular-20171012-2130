@@ -1,0 +1,25 @@
+p {
+    float: left;
+    border: 5px solid maroon;
+    width: 250px;
+    height: 100px;
+    padding: 20px;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.crimson {
+    border: 5px solid crimson;
+    color: crimson;
+}
+
+.steelblue {
+    border: 5px solid steelblue;
+    color: steelblue;
+}
+
+img {
+    float: left;
+    margin: 0 10px 0 0;
+}

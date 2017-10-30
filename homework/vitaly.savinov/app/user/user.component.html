@@ -1,0 +1,7 @@
+<div *ngFor="let item of names">
+  <p [class]='item.status' *ngIf='item.showIt' (click)='selectUser(item.id)'>
+    {{item.name}}
+    <br /><br />
+    <button (click)='item.showIt = false'>Удалить</button>
+  </p>
+</div>

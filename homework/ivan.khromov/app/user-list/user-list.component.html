@@ -1,0 +1,13 @@
+<h1>Список пользователей</h1>
+
+<div class="app-user-list">
+  <ul>
+    <li *ngFor="let u of userList" [class]="u.selected ? 'selected':''" (click)="selectUser(u);">
+      <app-user-card
+              [user]="u"
+              (onRemove)="deleteUser($event)"
+              >
+      </app-user-card>
+    </li>
+  </ul>
+</div>

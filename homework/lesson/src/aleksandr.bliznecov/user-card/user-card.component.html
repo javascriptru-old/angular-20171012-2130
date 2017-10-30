@@ -1,0 +1,10 @@
+<div class="col col-lg-3 col-sm-6">
+  <div class="card card_user" [ngClass]="{'card_user-active': isActiveCard}" (click)="toggleActiveCard()">
+    <img class="card-img-top" src="..." alt="Аватар пользователя">
+    <div class="card-body">
+      <h4 class="card-title">{{user.name}}</h4>
+      <p class="card-text">{{user.information}}</p>
+      <div class="btn btn-primary" (click)="deletCard(user.id)">Удалить пользователя</div>
+    </div>
+  </div>
+</div>

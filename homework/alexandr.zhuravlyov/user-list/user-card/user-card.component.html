@@ -1,0 +1,15 @@
+<ul>
+    <li>
+      <b>Id:</b> {{user?._id}}
+    </li>
+    <li>
+        <b>Full name:</b> {{user?.fullName}}
+    </li>
+    <li>
+        <b>Email:</b> {{user?.email}}
+    </li>
+    <li>
+        <b>Birthdate:</b> {{user?.birthdate | date}}
+    </li>
+    <li><button (click)="removeUser()">Delete user</button></li>
+  </ul>

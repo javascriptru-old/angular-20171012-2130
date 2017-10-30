@@ -1,0 +1,33 @@
+<input type="text" (input)="inputValue = $event.target.value">
+
+{{1 | sex }}
+{{111111 | date: 'fullDate'}}
+<!-- {{ user | json }} -->
+
+
+<app-user 
+   [x]="inputValue"
+   (done)="result = $event"
+></app-user>
+
+<div *ngIf="result != 0"></div>
+
+<ng-template [ngIf]="result != 0">
+  <div></div>
+</ng-template>
+
+<div appLogClicks>asdfadsfdsaf</div>
+
+{{result}}
+
+
+<!-- [user-card-list]
+  [user-card  x]
+  [user-card  x]
+  [user-card  x]
+  [user-card  x]
+  [user-card  x]
+  [user-card  x]
+
+
+[search-input] -->

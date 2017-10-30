@@ -1,0 +1,7 @@
+<h1>User Cards</h1>
+
+<section class="user">
+  <article *ngFor="let user of users" (click)="changeBorderColor($event.target)" >
+    <app-users [user]="user" (userDelete)="deleteUser(user)"></app-users>
+  </article>
+</section>

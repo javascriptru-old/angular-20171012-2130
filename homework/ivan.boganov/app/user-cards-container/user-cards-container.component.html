@@ -1,0 +1,9 @@
+<div>User cards:</div>
+
+<ul>
+  <li *ngFor="let userCard of userCards">
+    <app-user-card [userCard]="userCard" (userCardDeleted)="deleteUserCard(userCard)">
+
+    </app-user-card>
+  </li>
+</ul>

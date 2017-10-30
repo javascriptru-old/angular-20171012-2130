@@ -1,0 +1,5 @@
+<img [src]="user.infoObject?.avatarUrl" />
+<h3>{{user.infoObject?.fullName}}</h3>
+<span>Born: </span><i>{{ user.infoObject.birthdate | date:"dd.MM.yyyy"}}</i>
+<p>{{user.infoObject?.address}}</p>
+<div class="btn-remove" (click)="removeCard(user.infoObject?._id);"></div>

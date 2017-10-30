@@ -1,0 +1,11 @@
+<div (click)="activeItem(user)">
+    <img [src]="user.avatarUrl" alt="">
+    <div class="wrapper">
+        <div class="name">{{user?.fullName}}</div>
+        <div class="description">{{user?.email}}</div>
+        <div class="birthdate">{{user?.birthdate | birthdate}}</div>
+        <button (click)="getItem(user)">Remove</button>
+    </div>
+</div>
+
+

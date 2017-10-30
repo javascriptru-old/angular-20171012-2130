@@ -1,0 +1,10 @@
+<div class="card" (click)="selectUserCard()" [style.background-color]="getUserCardBackground()">
+  <div class="container">
+    <p>FullName: <b>{{userCard?.fullName}}</b></p>
+    <p>Email: <b>{{userCard?.email}}</b></p>
+    <p>Gender: <b>{{userCard?.gender}}</b></p>
+    <p>BirthDate: <b>{{userCard?.birthDate | date:'medium'}}</b></p>
+  </div>
+
+  <button (click)="deleteUserCard()">Delete</button>
+</div>

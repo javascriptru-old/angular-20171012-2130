@@ -1,0 +1,50 @@
+.user-card{
+  position: relative;
+  padding: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 3px
+}
+
+.user-card::after{
+  content: '';
+  display: table;
+  width: 100%;
+  clear: both;
+}
+
+.user-card__avatar{
+  float: left;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  margin-right: 20px;
+  background-color: #cccccc;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.user-card__info{
+  margin-left: 68px;
+}
+
+.user-card__name{
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.user-card__del{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background-color: red;
+  cursor: pointer;
+}

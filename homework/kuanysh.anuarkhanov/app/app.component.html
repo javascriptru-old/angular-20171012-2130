@@ -1,0 +1,6 @@
+<nav>
+    <mat-toolbar class="app-toolbar" color="primary">
+        <span>Application Title</span>
+    </mat-toolbar>
+</nav>
+<app-user-card [users]="users" (removeItem)="removeItem($event)"></app-user-card>
