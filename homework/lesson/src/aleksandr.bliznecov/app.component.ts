@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { mocData, IUserCard } from './app.component.models';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +6,10 @@ import { mocData, IUserCard } from './app.component.models';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  users: IUserCard[] = [...mocData];
+  constructor() { }
 
-  deletCard(index) {
-    const user = this.users.map(item => item.id === index);
-    console.log(this.users.splice(user.indexOf(true), 1));
+  ngOnInit() {
   }
-
-
 }
