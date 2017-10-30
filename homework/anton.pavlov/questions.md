@@ -1,2 +1,21 @@
-1. user-service.ts - line: 31 - при отправке подобного запроса я получаю: POST http://test-api.javascript.ru/v1/tonyp/users 400 (Bad Request)
-2. user-card-list.component.ts - line: 33 - выдаётся ошибка следующего содержания: ERROR HttpErrorResponse {headers: HttpHeaders, status: 200, statusText: "OK", url: "http://test-api.javascript.ru/v1/tonyp/users/59f1cae6adc7813304e7683b", ok: false, …} - при этом запись из базы удаляется, но subscribe не срабатывает и страница не обновляется
+1. Как построить грамотную структуру навигации? Допустим, у меня есть такое:
+const routes = [
+  {path: '', component: LoginComponent},
+  {
+    path: 'home', component: HomeComponent,
+    children: [
+      {path: '', component: InboxComponent},
+      {path: 'inbox', component: InboxComponent},
+      {path: 'sent', component: SentComponent},
+      {path: 'draft', component: DraftComponent},
+      {path: 'spam', component: SpamComponent},
+      {path: 'mail/:id', component: MailComponent}
+    ]
+  }
+];
+
+Из этого получается, что, если у меня путь "http://localhost:4200/home", то я могу зайти в конкретное письмо. А вот, если я уже выбрал какой-то ящик, например, "http://localhost:4200/home/inbox", то в письмо я уже попасть не могу, хотя я не очень понимаю, что мешает. И, как я понял, более одного массива children задать тут нельзя. Или как, допустим, тогда сделать, что, если я попадю в "home", то у меня сразу бы выбирался какой-то ящик по-умолчанию? Ну, по логике это "inbox" должен быть. Почему "inbox" в случае с "http://localhost:4200/home/inbox" просто не заменяется на mail/id? Ведь он является дочерним от home.
+
+2. Как передать объект конкретного письма в компоненту письма, чтобы отобразить его? Я долго прыгал вокруг да около, в итоге полез в Tour of Heroes, частично перетащил их решение, но добиться положительного результата не вышло.
+
+3. Как итог я могу сказать, что лично мне не хватило ни времени, ни знаний, ни подготовленных материалов, чтобы сделать проект непосредственно по заданию. Всегда, конечно, можно направиться в Гугл, но там ещё надо знать, что искать или как это потом внедрять себе.
