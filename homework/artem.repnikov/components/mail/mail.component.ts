@@ -1,13 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MailService } from '../../../services/mail/mail.service';
+import { MailService } from '../../services/mail/mail.service';
 
 @Component({
   selector: 'app-mail',
   templateUrl: './mail.component.html'
 })
 
-export class MailComponent implements OnInit {
+export class MailComponent {
   public mail:any;
 
   constructor(
@@ -18,8 +18,4 @@ export class MailComponent implements OnInit {
       this._mailService.getMail(params.id).subscribe(data => this.mail = data);
     })
   }
-
-  ngOnInit() {
-  }
-
 }

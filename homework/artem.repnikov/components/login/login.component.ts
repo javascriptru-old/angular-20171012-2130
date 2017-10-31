@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.component.html'
 })
+
 export class LoginComponent implements OnInit {
   private email: string;
   private password: string;
