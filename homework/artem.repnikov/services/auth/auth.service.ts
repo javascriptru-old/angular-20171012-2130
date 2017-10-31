@@ -11,7 +11,6 @@ export class AuthService {
   }
 
   isAuth() {
-    // return this.auth;
-    return true;
+    return this.auth;
   }
 }
