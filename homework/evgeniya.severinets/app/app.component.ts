@@ -8,29 +8,5 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   public title = 'Users';
-  public users = USERS;
-
 }
 
-const USERS: User[] = [
-  {
-    name: 'Inna Corman',
-    role: 'Project Manager'
-  },
-  {
-    name: 'Vincent Porter',
-    role: 'Front-end developer'
-  },
-  {
-    name: 'Irina Nils',
-    role: 'HR manager'
-  },
-  {
-    name: 'Peter Sun',
-    role: 'Java specialist'
-  },
-  {
-    name: 'Ann Monic',
-    role: 'UI developer'
-  }
-];

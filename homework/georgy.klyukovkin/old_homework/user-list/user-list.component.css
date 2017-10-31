@@ -1,0 +1,14 @@
+.selected{
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+}
+.card{
+    width:100px;
+    height: 200px;
+    display: inline-table;
+    background: white;
+    margin: 2em;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+}
+.list{
+    background: rgb(230, 230, 230);
+}

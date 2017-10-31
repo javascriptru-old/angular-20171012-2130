@@ -1,0 +1,5 @@
+<h2>Name: {{ user.fullName }}</h2>
+<p>Email: {{ user.email }}</p>
+<p>Gender: {{ user.gender }}</p>
+<p>Birthday: {{ user.birthdate | date }}</p>
+<div (click)="deleteUser(user._id)">Delete</div>

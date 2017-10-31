@@ -1,0 +1,23 @@
+.voo-sidebar{
+  min-height: 100vh;
+  border-right: 1px solid #ccc;
+}
+
+.voo-nav{
+  padding: 14px 0;
+}
+
+.voo-nav__link{
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.voo-nav__link.is-active{
+  color: #000;
+}
+
+.voo-content{
+  padding-top: 14px;
+  padding-bottom: 14px;
+}

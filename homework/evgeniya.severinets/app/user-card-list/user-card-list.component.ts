@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from '../user/user.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-card-list',
@@ -8,26 +10,39 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class UserCardListComponent implements OnInit {
 
-  @Input() users;
-
   public selectedUser: User;
+  public users: User[];
 
-  constructor() { }
+  user: any = {};
+
+  constructor(private _userService: UserService) {
+  }
 
   onSelect(user: User) {
     this.selectedUser = user;
   }
 
-  removeFromArray(user) {
-    console.log(user);
-    for (let i = 0; i < this.users.length; i++) {
-      if (this.users[i] === user) {
-        this.users.splice(i, 1);
-      }
-    }
-  }
-
   ngOnInit() {
+    this._userService.getAll().subscribe((users: User[]) => {
+      console.log(users);
+      this.users = users;
+    });
   }
 
+  removeFromUsers(user: User, index: number) {
+    this._userService.remove(user)
+      .subscribe(() => this.users.splice(index, 1),
+        (err) => console.log(err));
+  }
+
+  addToUsers() {
+    if (!this.user.fullName && !this.user.email) {
+      return;
+    }
+    console.log(this.user);
+    this._userService.add(this.user).subscribe((res) => {
+      console.log(res.users);
+      this.users = this.users.concat(res.users);
+    });
+  }
 }

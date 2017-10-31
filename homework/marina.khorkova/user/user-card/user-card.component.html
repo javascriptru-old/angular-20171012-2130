@@ -1,0 +1,12 @@
+<div class="user-card">
+  <div class="user-card__avatar">
+      {{user.fullName | initials}}
+  </div>
+  <div class="user-card__info">
+    <div class="user-card__name">{{user.fullName}}</div>
+    <div class="user-card__contacts">
+      E-mail: <a href="mailto:{{user.email}}">{{user.email}}</a>
+    </div>
+  </div>
+  <button (click)="delete(user._id)" class="user-card__del" title="delete">&times;</button>
+</div>

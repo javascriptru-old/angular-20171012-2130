@@ -1,0 +1,18 @@
+<div class='card' [class.active]="user.selected">
+
+  <a class="close-button" (click)="removeUser($event)"></a>
+  <h4 class="card-title">
+    <span>mrs.</span>
+    {{user.fullName}}
+  </h4>
+
+  <img class="card-img-top" src="{{user.avatarUrl}}" alt="Card image cap">
+  <div class="btn btn-primary {{user.selected? 'active':''}}" (click)="selectCard($event);">{{user.selected?'Hide':'Show'}} description
+  </div>
+  <div class="card-body" *ngIf="user.selected">
+    <span class="date-of-birth">{{user.birthdate | date}}</span>
+    <p class="card-text">
+      {{user.address}}
+    </p>
+  </div>
+</div>

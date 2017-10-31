@@ -1,0 +1,6 @@
+<div class="card"   (click)="selectUser(user.name)">
+  <span class="name">{{user.name}}</span>
+  <div class="photo" [style.background]="user.color"></div>
+  <span>{{user.birthday}}</span>
+  <button *ngIf="user.name==selectedName" (click)="deleteUser(user)">delete</button>
+</div>

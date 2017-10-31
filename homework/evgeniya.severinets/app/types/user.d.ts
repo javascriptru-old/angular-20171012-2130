@@ -1,4 +1,9 @@
 type User = {
-    name: string,
-    role: string
+    _id?: string,
+    fullName: string,
+    email: string,
+    address: string,
+    gender: string,
+    birthdate: Date,
+    avatarUrl: string,
 }

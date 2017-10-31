@@ -18,8 +18,8 @@ export class UserCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  removeUser() {
-    this.userDelete.emit(this.itemIndex);
+  removeUser(id) {
+    this.userDelete.emit(id);
   }
 
   clickCard() {

@@ -2,11 +2,11 @@
 
 <div class="app-user-list">
   <ul>
-    <li *ngFor="let u of userList" [class]="u.selected ? 'selected':''">
+    <li *ngFor="let u of userList" [class]="u.selected ? 'selected':''" (click)="selectUser(u);">
       <app-user-card
               [user]="u"
               (onRemove)="deleteUser($event)"
-              (click)="selectUser(u);">
+              >
       </app-user-card>
     </li>
   </ul>

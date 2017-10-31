@@ -1,34 +1,29 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {User} from "../app.component";
+import {Component, Input, OnInit, Output} from '@angular/core';
+import { User } from "../services/users.service";
+import {UsersService} from "../services/users.service";
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+    selector: 'app-user-list',
+    templateUrl: './user-list.component.html',
+    styleUrls: ['./user-list.component.css']
 })
 
 export class UserListComponent implements OnInit {
-  //почему implements OnInit ??? Кто это требует и зачем?
+    @Input('users') userList:User[];
 
+    constructor(private _userService:UsersService) { }
+    ngOnInit() {}
 
-  @Input('users') userList:User[];
+    deleteUser(id:string){
+        let self = this;
+        this._userService.deleteUser(id, () => {
+            self.userList = self.userList.filter((user, i, arr) => {return user.infoObject._id !== id; });
+        });
+    }
+    selectUser(u:User) {
+        u.selected = !u.selected;
+        console.log(u.selected);
+    }
 
-  constructor() { }
-  ngOnInit() {}
-
-  //есть ли более элегантный способ?
-  deleteUser(id:string){
-    let uIndex = 0;
-
-    this.userList.forEach(function(item, i){
-      //в ts если сравниваются 2 одинаковых типа, е
-      if (item.id === id)
-        uIndex = i;
-    });
-    this.userList.splice(uIndex, 1);
-  }
-  selectUser(u:User) {
-      u.selected = !u.selected;
-  }
 
 }

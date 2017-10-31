@@ -1,0 +1,6 @@
+<div class="container">
+  <div class="row">
+    <app-user-card class='col-6' *ngFor="let user of users" [userFromNgFor]="user" (userRemoved)="removeUser(user)"
+                   (cardSelected)="selectCard(user)"></app-user-card>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="container">
+  <button *ngIf="isLoggedIn()" class="btn" (click)="logout()">
+    Logout
+  </button>
+  <router-outlet></router-outlet>
+</div>
+

@@ -16,8 +16,8 @@ export class UserCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  removeUser(name: string){
-    this.userToRemove.emit(name);
+  removeUser(id: string){
+    this.userToRemove.emit(id);
   }
 
   toggleCardStyle(){
@@ -26,5 +26,12 @@ export class UserCardComponent implements OnInit {
     } else {
       this.cardStyle = 'card';
     }
+  }
+
+  hasBirthdayField(user): boolean {
+    if(!user.birthdate ){
+      return false;
+    }
+    return true;
   }
 }

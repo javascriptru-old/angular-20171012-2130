@@ -1,0 +1,18 @@
+.nav-link.is-active,
+.nav-link:link.is-active
+.nav-link:visited.is-active,
+.nav-link:hover.is-active
+.nav-link:active.is-active{
+  color: #fff;
+}
+
+.user-link{
+  color: rgba(255,255,255,.5);
+}
+.user-link.is-active,
+.user-link:link.is-active
+.user-link:visited.is-active,
+.user-link:hover.is-active
+.user-link:active.is-active{
+  color: #fff;
+}

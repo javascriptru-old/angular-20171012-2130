@@ -15,11 +15,12 @@ export class UserListComponent implements OnInit {
    }
 
   ngOnInit() {
-    this._userService.getAll().subscribe(users => this.users = users);
+    this._userService.getAll().subscribe(users => this.users = users['users']);
+    // removeUser = this._userService.removeUser(id).subscribe(data => console.log(data);
   }
 
-  public removeUser(name: string) {
-    this.users = this.users.filter( user => user.name !== name);
+  public removeUser(id: string) {
+    this._userService.removeUser(id).subscribe();
   }
 
 }
