@@ -1,0 +1,8 @@
+.active {
+    color: green;
+}
+
+h1 a {
+    color: green;
+    font-weight: normal;
+}
