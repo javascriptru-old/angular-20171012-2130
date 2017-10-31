@@ -17,6 +17,7 @@ import {LoginComponent} from './login/login.component';
 import {BoxListComponent} from './box/box-list/box-list.component';
 import {LettersService} from "./letters.service";
 import {LetterComponent} from './box/box-list/letter/letter.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 const apiKey = '?apiKey=IDfsaUTMyV7Yis-KmKjiO-51QX9RRxvM';
@@ -28,7 +29,15 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'box',
+    path: 'navigation',
+    component: NavigationComponent,
+  },
+  {
+    path: 'navigation/:users',
+    component: UsersListComponent
+  },
+  {
+    path: 'navigation/:box',
     component: BoxComponent,
     children: [
       {
@@ -102,6 +111,7 @@ const appRoutes: Routes = [
     LoginComponent,
     BoxListComponent,
     LetterComponent,
+    NavigationComponent,
 
   ],
   imports: [
