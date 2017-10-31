@@ -1,23 +1,53 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { UserCardListComponent } from './user-card-list/user-card-list.component';
-import { UserCardComponent } from './user-card/user-card.component';
-import { UserService } from './user.service';
-import { HttpClientModule } from '@angular/common/http';
+import {AppComponent} from './app.component';
+import {RouterModule} from '@angular/router';
+import {LoginComponent} from './login/login.component';
+import {HomeComponent} from './home/home.component';
+import {NavPanelComponent} from './home/nav-panel/nav-panel.component';
+import {MailListComponent} from './home/mail-list/mail-list.component';
+import {InboxComponent} from './home/mail-list/inbox/inbox.component';
+import {SentComponent} from './home/mail-list/sent/sent.component';
+import {DraftComponent} from './home/mail-list/draft/draft.component';
+import {SpamComponent} from './home/mail-list/spam/spam.component';
+import {MailService} from './mail.service';
+import { MailComponent } from './home/mail-list/mail/mail.component';
+
+const routes = [
+  {path: '', component: LoginComponent},
+  {
+    path: 'home', component: HomeComponent,
+    children: [
+      {path: '', component: InboxComponent},
+      {path: 'inbox', component: InboxComponent},
+      {path: 'sent', component: SentComponent},
+      {path: 'draft', component: DraftComponent},
+      {path: 'spam', component: SpamComponent},
+      {path: 'mail/:id', component: MailComponent}
+    ]
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserCardListComponent,
-    UserCardComponent
+    LoginComponent,
+    HomeComponent,
+    NavPanelComponent,
+    MailListComponent,
+    InboxComponent,
+    SentComponent,
+    DraftComponent,
+    SpamComponent,
+    MailComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    RouterModule.forRoot(routes)
   ],
-  providers: [UserService],
+  providers: [MailService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,23 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserCardComponent } from './user-list/user-card/user-card.component';
-import { UserService } from './user.service';
+import { LoginComponent } from './login/login.component';
+import { MailboxComponent } from './mailbox/mailbox.component';
+import { MailboxService } from './mailbox.service';
+import { MessageListComponent } from './mailbox/message-list/message-list.component';
+
+const routes = [
+  { path: '', component: LoginComponent },
+  { path: 'mailbox', component: MailboxComponent },
+  { path: 'mailbox/:folder', component: MailboxComponent }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent,
-    UserCardComponent
+    LoginComponent,
+    MailboxComponent,
+    MessageListComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    RouterModule.forRoot(routes)
   ],
-  providers: [UserService],
+  providers: [MailboxService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
