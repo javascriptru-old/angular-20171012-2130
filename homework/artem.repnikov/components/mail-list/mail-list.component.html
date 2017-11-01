@@ -4,4 +4,7 @@
 <a routerLink="/mails/draft" routerLinkActive="is-active">Черновики</a><br>
 <a routerLink="/mails/spam" routerLinkActive="is-active">Спам</a>
 <br><br><hr><br>
-<app-mails [mails]="mails"></app-mails>
+<div *ngFor="let mail of mails">
+    <app-mail-link [mail]="mail"></app-mail-link>
+</div>
+<router-outlet></router-outlet>

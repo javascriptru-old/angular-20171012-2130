@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MailsService } from '../../services/mails/mails.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-mail-list',
+  templateUrl: './mail-list.component.html',
+  styleUrls: ['./mail-list.component.scss']
 })
-export class HomeComponent implements OnInit {
+
+export class MailListComponent implements OnInit {
   public mails: any;
 
   constructor(
