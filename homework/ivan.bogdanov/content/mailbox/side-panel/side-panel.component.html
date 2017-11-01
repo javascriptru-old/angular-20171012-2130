@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let box of getBoxes()">
+    <button routerLink="{{box?._id}}" class="mailbtn">{{box?.title}}</button>
+  </li>
+</ul>
+
+<!--<button routerLink="settings" class="mailbtn">Настройки</button>-->
+
+<button routerLink="" class="mailbtn">Logout</button>
