@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MailboxService } from '../mailbox.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mailbox',
@@ -10,17 +10,20 @@ import { ActivatedRoute } from '@angular/router';
 export class MailboxComponent implements OnInit {
 
   public folders;
-  public messageList;
+  public amount;
 
+  constructor(
+    private _mailboxService: MailboxService,
+    private _router: Router
+  ) {
+    this.folders = this._mailboxService.getAllFolders();
+    this.getAmounts();
+  }
 
-  constructor(private _mailboxService: MailboxService,
-              private route: ActivatedRoute) {
-
-      this.folders = this._mailboxService.getAll();
-
-      this.route.params.subscribe( (params) => {
-        this.messageList = this._mailboxService.getMessages(params);
-      });
+  getAmounts() {
+    this.folders.forEach(element => {
+      element.amount = this._mailboxService.getMessagesAmount(element.path);
+    });
   }
 
   ngOnInit() {

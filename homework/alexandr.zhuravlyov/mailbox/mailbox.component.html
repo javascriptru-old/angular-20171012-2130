@@ -1,16 +1,11 @@
 <h1>Mailbox</h1>
-<a routerLink="/">Log out</a>
 
 <ul>
-    <li *ngFor="let folder of folders">
-        <a routerLink="{{folder.url}}" routerLinkActive="active">
-            {{folder.name}}
-        </a>
-    </li>
+  <li *ngFor="let folder of folders">
+    <a routerLink="{{folder.path}}" routerLinkActive="active">
+      {{folder.name}} ({{folder.amount}})
+    </a>
+  </li>
 </ul>
 
-<ul>
-    <li *ngFor="let message of messageList">
-        <app-message-list [message]="message"></app-message-list>
-    </li>
-</ul>
+<router-outlet></router-outlet>
