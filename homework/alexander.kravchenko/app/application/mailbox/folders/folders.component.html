@@ -1,0 +1,7 @@
+<div *ngFor="let letter of responseFromServer" class="folder__block">
+  <div class="folder__title"
+       [routerLink]="[letter.id]"
+       routerLinkActive="active">
+    {{ letter.title }}
+  </div>
+</div>

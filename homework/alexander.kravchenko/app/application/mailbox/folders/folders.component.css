@@ -1,0 +1,14 @@
+.folder__title {
+  padding: 3px;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+}
+
+.folder__title:focus {
+  outline: 0;
+}
+
+.folder__title:hover {
+  color: red;
+}
