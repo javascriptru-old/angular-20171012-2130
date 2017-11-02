@@ -1,0 +1,5 @@
+.letter {
+  border: ridge black;
+  width: 300px;
+  border-width: thin;
+}
