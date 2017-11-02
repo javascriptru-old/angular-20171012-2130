@@ -15,7 +15,8 @@ h1 {
   background: #041E36;
   height: 49px;
 }
-.row > div {
+.row > a {
+  display: block;
   background: #041E36;
   color: #fff;
   border-bottom: 1px solid #041E36;
@@ -27,8 +28,8 @@ h1 {
   transition: 0.5s;
 }
 
-.row > div:hover,
-.row > div.active {
+.row > a:hover,
+.row > a.active {
   color: #041E36;
   background: #fff;
 }

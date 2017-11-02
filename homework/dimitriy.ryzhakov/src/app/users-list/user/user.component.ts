@@ -1,30 +1,41 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {UsersService} from "../../users.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
-    selector: 'app-user',
-    templateUrl: './user.component.html',
-    styleUrls: ['./user.component.css']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
 
-    @Input() user: object;
-    @Output() removeItem: EventEmitter<object> = new EventEmitter();
-    @Output() addActiveClass: EventEmitter<object> = new EventEmitter();
+  public oneUser;
+
+  public userId;
+
+  constructor(private userService: UsersService,
+              private router: ActivatedRoute) {
+    this.router.params.subscribe(params => this.userId = params);
+  }
 
 
-    public getItem(i: object): void {
-        this.removeItem.emit(i);
+  getItem(id) {
+    this.userService.removeUser(id._id).subscribe(res => {
+
+      this.oneUser = null;
+    });
+
+
+  }
+
+
+  ngOnInit() {
+    console.log(this.userId)
+    this.userService.getOneUser(this.userId).subscribe(response => {
+      this.oneUser = response;
     }
 
-    public activeItem(item: object): void {
-        this.addActiveClass.emit(item);
-    }
-
-    constructor() {
-    }
-
-
-    ngOnInit() {
-    }
+    );
+  }
 
 }

@@ -29,15 +29,17 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'navigation',
-    component: NavigationComponent,
+    path: 'users',
+    component: UsersListComponent,
+
   },
   {
-    path: 'navigation/:users',
-    component: UsersListComponent
+    path: 'users/:id',
+    component: UserComponent,
+
   },
   {
-    path: 'navigation/:box',
+    path: 'box',
     component: BoxComponent,
     children: [
       {
