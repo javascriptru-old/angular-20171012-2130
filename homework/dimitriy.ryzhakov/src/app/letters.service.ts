@@ -3,9 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {Iletters} from "./iletters";
 import {Iletter} from "./iletter";
 
-
-
-
 @Injectable()
 export class LettersService {
 

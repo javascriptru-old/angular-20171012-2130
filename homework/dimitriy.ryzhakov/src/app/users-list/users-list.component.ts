@@ -1,7 +1,6 @@
-import {Component, DoCheck, OnChanges, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UsersService} from '../users.service';
 import {ActivatedRoute} from "@angular/router";
-import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 
 @Component({
@@ -23,27 +22,5 @@ export class UsersListComponent implements OnInit {
       this.data = response;
 
     });
-  };
-
-
-  // this.userService.postUsers(this.userService.getData()).subscribe(
-  //     data => {
-  //       console.log('Done');
-  //     },
-  //     err => {
-  //       console.log('Error ' + err.status);
-  //     }
-  // );
-  //
-  // this.userService.getUsers().subscribe(
-  //   data => {
-  //     this.data = data;
-  //   },
-  //   err => {
-  //     console.log('Error ' + err.status);
-  //   }
-  // );
-
-
-
+  }
 }
