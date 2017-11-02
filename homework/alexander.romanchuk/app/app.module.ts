@@ -14,18 +14,23 @@ import {HeaderComponent} from './header/header.component';
 import {UserService} from "./user/user.service";
 import {UserCardComponent} from "./header/user-card/user-card.component";
 import {HttpClientModule} from "@angular/common/http";
+import { HomeComponent } from './home/home.component';
 
 const routes = [
   {path: '', component: LoginComponent},
-  {path: 'contacts', component: HeaderComponent},
-  {path: 'mailBox', component: MailBoxComponent,
-    children: [
-      {path: 'box/:box', component: MailListComponent,
-       children: [
-         {path: 'openLetter/:letterId', component: OpenLetterComponent}
-       ]},
-    ]
-  }
+  {path: 'home', component: HomeComponent,
+    children:[
+      {path: 'contacts', component: HeaderComponent},
+      {path: 'mailBox', component: MailBoxComponent,
+        children: [
+          {path: 'box/:box', component: MailListComponent,
+            children: [
+              {path: 'openLetter/:letterId', component: OpenLetterComponent}
+            ]},
+        ]
+      }
+    ]}
+
 ];
 
 
@@ -39,7 +44,8 @@ const routes = [
     LetterComponent,
     HeaderComponent,
     UserCardComponent,
-    OpenLetterComponent
+    OpenLetterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
