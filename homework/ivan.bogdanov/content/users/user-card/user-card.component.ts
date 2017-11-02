@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import {User} from '../../../user/user.service';
+import {User} from '../../../services/user/user.service';
 
 @Component({
   selector: 'app-user-card',
