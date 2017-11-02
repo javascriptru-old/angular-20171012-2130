@@ -1,6 +1,6 @@
-import { MailService } from './../mail.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LetterService } from './../services/letter.service';
 import { ILetter } from '../../interfaces/letter.interface';
 
 @Component({
@@ -15,23 +15,19 @@ export class MailListComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private mailService: MailService) { }
+              private letterService: LetterService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.boxId = params.boxId;
-      this.getList(params.boxId);
+      this.getList(this.boxId);
     });
   }
 
-  private getList(type: string) {
-    if (['inbox', 'send', 'draft', 'spam'].indexOf(type) < 0) {
-      this.router.navigate(['/']);
-    } else {
-      return this.mailService
-        .getList(type)
-        .subscribe(letters => this.letters = letters)
-    }
+  private getList(id: string) {
+    return this.letterService
+      .getList()
+      .subscribe(letters => this.letters = letters.filter(letter => letter.mailbox === id))
   }
 
 }

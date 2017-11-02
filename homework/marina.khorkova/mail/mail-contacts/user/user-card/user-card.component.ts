@@ -1,4 +1,4 @@
-import { IUser } from '../../interfaces/user.interface';
+import { IUser } from '../../../../interfaces/user.interface';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({

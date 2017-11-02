@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-12 col-md-3 col-xl-2 voo-sidebar">
       <nav class="voo-nav">
-        <a class="voo-nav__link" routerLink="inbox" routerLinkActive="is-active">Входящие</a>
-        <a class="voo-nav__link" routerLink="send" routerLinkActive="is-active">Отправленные</a>
-        <a class="voo-nav__link" routerLink="draft" routerLinkActive="is-active">Черновики</a>
-        <a class="voo-nav__link" routerLink="spam" routerLinkActive="is-active">Спам</a>
+        <a *ngFor="let mailbox of mailboxes"
+          class="voo-nav__link"
+          [routerLink]="[mailbox._id]"
+          routerLinkActive="is-active">{{mailbox.title}}</a>
       </nav>
     </div>
     <main role="main" class="col-12 col-md-9 col-xl-10 voo-content">
