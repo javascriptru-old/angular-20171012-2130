@@ -17,6 +17,7 @@ import {LoginComponent} from './login/login.component';
 import {BoxListComponent} from './box/box-list/box-list.component';
 import {LettersService} from "./letters.service";
 import {LetterComponent} from './box/box-list/letter/letter.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 const apiKey = '?apiKey=IDfsaUTMyV7Yis-KmKjiO-51QX9RRxvM';
@@ -26,6 +27,16 @@ const appRoutes: Routes = [
     path: '',
     component: LoginComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'users',
+    component: UsersListComponent,
+
+  },
+  {
+    path: 'users/:id',
+    component: UserComponent,
+
   },
   {
     path: 'box',
@@ -102,6 +113,7 @@ const appRoutes: Routes = [
     LoginComponent,
     BoxListComponent,
     LetterComponent,
+    NavigationComponent,
 
   ],
   imports: [

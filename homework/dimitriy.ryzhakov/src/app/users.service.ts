@@ -32,11 +32,7 @@ export class UsersService {
         birthdate: '1991-05-23T18:25:43.511Z'
       },
     ]
-  }
-
-  getData() {
-    return this.userlist;
-  }
+  };
 
 
   constructor(private _http: HttpClient) {
@@ -44,6 +40,10 @@ export class UsersService {
 
   getUsers() {
     return this._http.get('http://test-api.javascript.ru/v1/dimitriyryzhakov/users');
+  }
+
+  getOneUser(_id) {
+    return this._http.get('http://test-api.javascript.ru/v1/dimitriyryzhakov/users/' + _id.id);
   }
 
   postUsers(dataUrl) {
