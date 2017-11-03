@@ -16,3 +16,7 @@
 .user-link:active.is-active{
   color: #fff;
 }
+
+.user-info{
+  color: #ccc;
+}

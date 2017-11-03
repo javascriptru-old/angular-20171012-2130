@@ -1,8 +1,7 @@
-import { IUser } from './user.interface';
-
 export interface ILetter {
   _id: string;
+  mailbox: string;
   subject: string;
-  from?: IUser;
-  to?: IUser;
+  body: string;
+  to: string;
 }
