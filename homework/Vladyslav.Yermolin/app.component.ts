@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'app';
- 
+  public loggedIn: boolean = false;
+
+  public logIn() {
+    this.loggedIn = true;
+  }
 
 }

@@ -1,0 +1,13 @@
+.letter__title {
+  padding: 5px;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.letter__body {
+  padding: 5px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #777;
+}

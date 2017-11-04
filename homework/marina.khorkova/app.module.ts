@@ -1,25 +1,54 @@
-import { UserService } from './user/user.service';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import 'rxjs/add/observable/of';
 
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { UserCardComponent } from './user/user-card/user-card.component';
-import { UserListComponent } from './user/user-list/user-list.component';
-import { InitialsPipe } from './initials.pipe';
+import { HeaderComponent } from './header/header.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserCardComponent,
-    UserListComponent,
-    InitialsPipe
+    AuthComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'login'
+      },
+      {
+        path: 'login',
+        component: AuthComponent
+      },
+      {
+        path: 'mail',
+        loadChildren: './mail/mail-root/mail-root.module#MailRootModule',
+        canActivate: [AuthGuard],
+        resolve: {
+          'user': AuthService
+        }
+      },
+      {
+        path: '**',
+        redirectTo: ''
+      }
+    ])
   ],
-  providers: [UserService, InitialsPipe],
+  providers: [
+    AuthGuard,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

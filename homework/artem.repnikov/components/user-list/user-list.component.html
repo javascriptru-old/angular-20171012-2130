@@ -1,3 +1,5 @@
-<div *ngFor="let user of users">
-    <app-user (removeEvent)="removeUser($event)" (activeEvent)="active = $event" [user]="user" [active]="active"></app-user>
+<h1>Получатели:</h1>
+<div class="user-list__item" *ngFor="let user of users">
+    <app-user-link (removeEvent)="removeUser($event)" [user]="user"></app-user-link>
 </div>
+<router-outlet></router-outlet>

@@ -1,0 +1,31 @@
+.tab-link {
+  color: #555555;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 10px;
+  transition: 0.3s;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: monospace;
+  background-color: #ffffff;
+}
+
+.tab-link:hover {
+  color: black;
+  background-color: antiquewhite;
+  transition: 0.3s;
+  border: 1px solid brown;
+}
+
+.active {
+  background-color: darkred;
+  transition: 0.3s;
+  color: white;
+}
+
+.nav-tab {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-bottom: 20px solid #cccccc;
+}

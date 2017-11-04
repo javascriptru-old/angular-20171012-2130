@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -7,12 +8,12 @@ import { UserService } from '../../services/user.service';
 })
 
 export class UserListComponent implements OnInit {
-  public users:any;
-  public active:number;
+  public users: any;
 
-  constructor(public _userService: UserService) {
-    
-  }
+  constructor(
+    public _userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this._userService.getUsers().subscribe(data => this.users = data);
@@ -21,6 +22,7 @@ export class UserListComponent implements OnInit {
   removeUser(id:number) {
     this._userService.removeUsers(id).subscribe(data => {
       this.users = this.users.filter(user => user.id !== id);
+      this.router.navigate(['/addresses']);
     });
   }
 }

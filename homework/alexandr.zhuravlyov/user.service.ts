@@ -1,22 +1,41 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class UserService {
 
-  constructor(private _http: HttpClient) { }
+  private users = [
+    {
+      id: 1,
+      name: 'John',
+      age: 30,
+      country: 'UK',
+      sex: 'male'
+    },
+    {
+      id: 2,
+      name: 'Samantha',
+      age: 24,
+      country: 'Germany',
+      sex: 'female'
+    }
+  ];
+
+  constructor() { }
 
   getAll() {
-    return this._http.get('http://test-api.javascript.ru/v1/azh/users');
+    return this.users;
   }
 
-  addUser(user) {
-    return this._http.post('http://test-api.javascript.ru/v1/azh/users/', user);
-  }
+  getUserById(id) {
+    let user = null;
 
-  removeUser(id) {
-    const query = 'http://test-api.javascript.ru/v1/azh/users/' + id;
-    return this._http.delete(query, {responseType: 'text'});
+    this.users.forEach( item => {
+      if (item.id === +id) {
+        user = item;
+      }
+    });
+
+    return user;
   }
 
 }

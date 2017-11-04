@@ -1,0 +1,10 @@
+<h1>Почта:</h1>
+<a routerLink="/mails/inbox" routerLinkActive="is-active">Входящие</a><br>
+<a routerLink="/mails/sent" routerLinkActive="is-active">Отправленные</a><br>
+<a routerLink="/mails/draft" routerLinkActive="is-active">Черновики</a><br>
+<a routerLink="/mails/spam" routerLinkActive="is-active">Спам</a>
+<br><br><hr><br>
+<div *ngFor="let mail of mails">
+    <app-mail-link [mail]="mail"></app-mail-link>
+</div>
+<router-outlet></router-outlet>

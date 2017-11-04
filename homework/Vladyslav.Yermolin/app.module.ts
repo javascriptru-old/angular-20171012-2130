@@ -1,27 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { UserService } from './user.service';
-import { UserCardComponent } from './main/user-card/user-card.component';
-import { MainComponent } from './main/main.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { InboxComponent } from './home/inbox/inbox.component';
+import { SentComponent } from './home/sent/sent.component';
+import { DraftsComponent } from './home/drafts/drafts.component';
+import { LetterComponent } from './home/letter/letter.component';
+import { LetterBigComponent } from './home/letter-big/letter-big.component';
+
+const routes = [
+  {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'inbox', component: InboxComponent},
+  {path: 'inbox/:letterId', component: LetterBigComponent},
+  {path: 'sent', component: SentComponent},
+  {path: 'sent/:letterId', component: LetterBigComponent},
+  {path: 'drafts', component: DraftsComponent},
+  {path: 'drafts/:letterId', component: LetterBigComponent},
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserCardComponent,
-    MainComponent
+    LoginComponent,
+    HomeComponent,
+    InboxComponent,
+    SentComponent,
+    DraftsComponent,
+    LetterComponent,
+    LetterBigComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    RouterModule.forRoot(routes)
   ],
-  providers: [
-    //{token, recipe }
-    {provide: UserService, useClass: UserService},
-      UserService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

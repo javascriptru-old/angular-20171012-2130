@@ -1,0 +1,11 @@
+<h1>Mailbox</h1>
+
+<ul>
+  <li *ngFor="let folder of folders">
+    <a routerLink="{{folder.path}}" routerLinkActive="active">
+      {{folder.name}} ({{folder.amount}})
+    </a>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
