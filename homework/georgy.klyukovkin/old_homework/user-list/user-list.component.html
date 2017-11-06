@@ -1,0 +1,13 @@
+
+<div class="list">
+  <app-user-card *ngFor="let user of users"
+                 [user]="user"
+                 (selectedUser)="selectedUser=user"
+                 (deletedUser)="deleteUser(user)"
+                 [style.box-shadow]="selectedUser==user ? '0 0 10px 5px '+user.color : '' "
+                 class="card">
+
+
+  </app-user-card>
+</div>
+{{selectedUser?.name}}

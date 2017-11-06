@@ -1,24 +1,32 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+import {User} from './user';
 
 @Injectable()
 export class UserService {
 
-  private users = [
-    {name: "John", occupation: "Developer", company: "Apple Inc.", university: "Harvard University", class: "card"},
-    {name: "Bob", occupation: "Web Designer", company: "Google", university: "Oxford University", class: "card"},
-    {name: "Alice", occupation: "Solicitor", company: "HHM", university: "Cambridge University", class: "card"}
-  ];
+  private userList = {
+    users: [
+      {fullName: 'John Doe', email: 'johndoe@gmail.com', gender: 'M', birthdate: new Date('10.18.1987')},
+      {fullName: 'Bob Pitchford', email: 'pitchfordb@gmail.com', gender: 'M', birthdate: new Date('10.03.1988')},
+      {fullName: 'Alice McAllan', email: 'mcaliceallan@gmail.com', gender: 'F', birthdate: new Date('09.26.1992')}
+    ]
+  };
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {
+  }
 
-    public getAll() {
-      return this.users;
-      //return this._http.get('https://jsonplaceholder.typicode.com/users');
-    }
+  public getAllUsers(): Observable<User[]> {
+    return this._http.get<User[]>('http://test-api.javascript.ru/v1/tonyp/users');
+  }
 
-    public remove(name: string) {
-      return this.users = this.users.filter(user => user.name !== name);
-    }
+  public addUsers(): Observable<any> {
+    return this._http.post<any>('http://test-api.javascript.ru/v1/tonyp/', this.userList);
+  }
+
+  public remove(id: string) {
+    return this._http.delete('http://test-api.javascript.ru/v1/tonyp/users/' + id, {responseType: 'text'});
+  }
 
 }

@@ -1,7 +1,5 @@
-<card *ngFor="let user of users"
-  (onDelete)="deleteUser($event)"
-  [isSelected]="selectedUserId === user.id"
-  (onSelect)="toggleUserSelection($event)"
-  (onDeselect)="toggleUserSelection($event)"
-  [user]="user">
-</card>
+<main-navigation></main-navigation>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+

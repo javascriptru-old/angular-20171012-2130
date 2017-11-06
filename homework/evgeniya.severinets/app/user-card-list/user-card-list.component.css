@@ -19,4 +19,15 @@
     background-color: #5f9ea0;
 }
 
+.user-form-wrapper {
+    width: 50%;
+    margin: 0 auto;
+    padding: 25px;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+}
 
+.mat-button {
+    margin-left: 20px;
+}

@@ -1,18 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule, OnInit} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { UserCardComponent } from './user-card/user-card.component';
+import {AppComponent} from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+import {UserCardComponent} from './components/user-card/user-card.component';
+import {UserListComponent} from './components/user-list/user-list.component';
+import {UserService} from './services/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserCardComponent
+    UserCardComponent,
+    UserListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule{
+
+
+}
+

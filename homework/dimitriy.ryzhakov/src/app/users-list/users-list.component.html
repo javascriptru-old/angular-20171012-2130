@@ -1,0 +1,11 @@
+<app-navigation></app-navigation>
+<ul class="users-list">
+  <li class="item" *ngFor="let user of data" [routerLink]="user._id">
+    <div>
+      <img [src]="user?.avatarUrl" alt="">
+      <div class="wrapper">
+        <div class="name">{{user?.fullName}}</div>
+      </div>
+    </div>
+  </li>
+</ul>

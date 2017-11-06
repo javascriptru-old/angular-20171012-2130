@@ -5,6 +5,17 @@
     <p></p>
   </div>
 
-  <input #usernameElement><button (click)="addUser(usernameElement.value); usernameElement.value = ''">Add user</button>
+  Enter username:
+  <input #usernameElement>
+  <p></p>
+  Enter email:
+  <input #emailElement>
+
+  <p></p>
+
+  <button (click)="addUser(usernameElement.value, emailElement.value);
+                           usernameElement.value = ''; emailElement.value = '';">
+    Add user
+  </button>
 
 

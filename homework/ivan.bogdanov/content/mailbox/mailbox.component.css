@@ -1,0 +1,11 @@
+.leftPanel {
+  width: 10%;
+  float: left;
+  margin: 20px;
+}
+
+.mailbox {
+  width: 75%;
+  float: left;
+  margin: 20px;
+}

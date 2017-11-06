@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../interfaces/user";
+import {User} from '../interfaces/user';
+import {UserService} from '../user/user.service';
 
 
 @Component({
@@ -7,35 +8,28 @@ import {User} from "../interfaces/user";
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css']
 })
+
 export class UserListComponent implements OnInit {
 
-  users: User[] = [
-    {
-      name: 'Test',
-      gender: 'male',
-      email: 'test@gmail.com'
-    },
-    {
-      name: 'Test1',
-      gender: 'female',
-      email: 'test1@gmail.com'
-    },
-    {
-      name: 'Test2',
-      gender: 'male',
-      email: 'test2@gmail.com'
-    }
-  ];
+  users: User[];
 
   activeCardIndex = null;
 
-  constructor() { }
+  constructor(private _userService: UserService) { }
 
   ngOnInit() {
+    this.updateUser();
   }
 
-  userDelete (itemIndex) {
-    this.users.splice(itemIndex, 1);
+  updateUser() {
+    this._userService.getAll().subscribe ((users: User[])  => this.users = users);
+  }
+
+  userDelete (id) {
+    this._userService.deleteUser(id).subscribe(
+      succ => this.updateUser(),
+      err => console.log(err)
+    );
   }
 
   cardClick (itemIndex) {

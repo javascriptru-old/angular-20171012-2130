@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let message of messages">
+    <a routerLink="{{message.id}}">
+      {{message.title}}
+    </a>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
+

@@ -1,7 +1,6 @@
-import { UsersService } from './users.service';
+import { AuthService } from './auth.service';
 import { Component, OnInit } from '@angular/core';
-import { User, UserSelectionData } from './interfaces';
-import * as utils from './utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,23 +9,8 @@ import * as utils from './utils';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-  users: User[];
-  selectedUserId: number|null;
 
-  constructor(private usersService: UsersService) {}
+  constructor() {}
 
-  ngOnInit () {
-    this.usersService.getAll().subscribe((users) => this.users = users);
-  }
-
-  deleteUser (user: UserSelectionData) {
-    const index = this.users.findIndex(({id}) => user.id === id);
-    if (index >= 0) {
-      this.users = utils.removeItemFromList(this.users, index);
-    }
-  }
-
-  toggleUserSelection ({id}: UserSelectionData) {
-    this.selectedUserId = (this.selectedUserId !== id) ? id : null;
-  }
+  ngOnInit () {}
 }
