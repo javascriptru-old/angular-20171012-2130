@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-3">
+    <div class="list-group">
+      <a routerLink="/mailbox/inbox" routerLinkActive="active" class="list-group-item">Входящие</a>
+      <a routerLink="/mailbox/sent" routerLinkActive="active" class="list-group-item">Отправленные</a>
+      <a routerLink="/mailbox/spam" routerLinkActive="active" class="list-group-item">Спам</a>
+      <a routerLink="/mailbox/draft" routerLinkActive="active" class="list-group-item">Черновики</a>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>
