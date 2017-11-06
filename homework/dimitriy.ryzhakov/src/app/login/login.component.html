@@ -1,0 +1,22 @@
+
+
+<div class="container form-container">
+  <div class="row">
+    <h1>Login in</h1>
+    <div class="col-12">
+      <div class="form-group">
+        <input class="form-control" (keypress)="inputEmail()" type="email" #emailInput placeholder='Email' required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="password" placeholder="password" required>
+      </div>
+      <div class="form-group">
+        <button routerLink="/box/inbox" routerLinkActive="active" class="btn btn-primary">submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+

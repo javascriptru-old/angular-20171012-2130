@@ -1,0 +1,39 @@
+
+header {
+  background: black;
+  height: 100px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 32px;
+  text-align: center;
+  color: #fff;
+  padding: 20px 0;
+}
+.wrapper {
+  background: #041E36;
+  height: 49px;
+}
+.row > a {
+  display: block;
+  background: #041E36;
+  color: #fff;
+  border-bottom: 1px solid #041E36;
+  padding: 10px 0;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 19px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.row > a:hover,
+.row > a.active {
+  color: #041E36;
+  background: #fff;
+}
+
+body {
+  overflow-y: scroll;
+}

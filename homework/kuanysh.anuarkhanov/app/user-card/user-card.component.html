@@ -1,0 +1,23 @@
+<mat-list *ngFor="let el of users">
+    <div *ngIf="!el.edit">
+        <mat-list-item (click)="hideShowEl(el)" (mouseenter) = "hoverEl($event)" (mouseleave) = "unHoverEl($event)">
+            <img matListAvatar [src]="el.imgUrl">
+            <h3 matLine> {{ el.name }}</h3>
+        </mat-list-item>
+    </div>
+    <div *ngIf="el.edit">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <img mat-card-avatar [src]="el.imgUrl" alt="Photo of a Shiba Inu">
+                <mat-card-title>{{ el.name }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{ el.description }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="warn" (click)="removeEl(el.id)">Удалить контакт</button>
+                <button mat-raised-button color="primary" (click) = "hideShowEl(el)">Закрыть</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</mat-list>

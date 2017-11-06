@@ -1,0 +1,26 @@
+* {margin: 0; padding: 0;}
+
+img {
+    float: left;
+    margin: 0 15px 0 0;
+    height: 80px;
+    width: 80px;
+}
+
+p {
+    font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+
+.btn-remove {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: url(https://cdn3.iconfinder.com/data/icons/eightyshades/512/18_Close-128.png) no-repeat;
+    background-size: contain;
+}
+
+h3 {
+    font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}

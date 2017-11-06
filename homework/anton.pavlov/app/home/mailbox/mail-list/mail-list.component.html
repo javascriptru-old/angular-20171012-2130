@@ -1,0 +1,8 @@
+<div *ngFor="let letter of letters">
+  <a routerLink="mail/{{letter._id}}">
+    <div class="mail-element">
+      <span class="sender">{{letter.to }}</span>
+      <span class="subject"> Subject: {{letter.subject}}</span>
+    </div>
+  </a>
+</div>

@@ -1,0 +1,18 @@
+<app-navigation></app-navigation>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div *ngIf="oneUser">
+        <img [src]="oneUser?.avatarUrl" alt="">
+        <div class="wrapper">
+          <div class="name">{{oneUser?.fullName}}</div>
+          <div class="description">{{oneUser?.email}}</div>
+          <div class="birthdate">{{oneUser?.birthdate | birthdate}}</div>
+          <button (click)="getItem(oneUser)">Remove</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
