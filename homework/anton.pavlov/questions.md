@@ -8,10 +8,11 @@
 3. Очень хотелось бы всё-таки увидеть скринкаст по созданию этого почтового клиента, чтобы появилось понимание, как правильно это делать, как нужно и как не нужно. У меня, например, возникло очень много неприятных и болевых ощущений при работе с тестовым api, в особенности это касалось заполнения базы и получения данных. В итоге у меня получились структуры из subscribe() внутри subscribe() внутри subscribe(). Так глубоко, мне кажется, даже ДиКаприо в Inception  не погружался. Например:
 
 	constructor(private route: ActivatedRoute, private _mailService: MailService) {
-    this.route.params.subscribe(params => {
-      this.box = params['box'];
-      this.getMailsForSelectedBox(this.box);
-    });
+    this.route.params.pluck('box')
+		 .filter( box => box !== 'draft' )
+		 .switchMap(box => this.getMailsForSelectedBox(this.box))
+		 .switchMap(selectedBox => )
+		 .subscribe(selectedBox)
 	}
 
 	public getMailsForSelectedBox(box: string) {

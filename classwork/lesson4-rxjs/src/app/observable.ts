@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/catch';
@@ -66,3 +67,37 @@ Observable.create(function(observer: Observer<string>) {
 Observable.of('Hello!');  // Promise.resolve('Hello!')
 
 Observable.from([1, 2, 3, 4, 5, 6]);
+
+
+let myObserver: Observer<string>;
+const myObservable: Observable<string> =
+Observable.create(function(observer: Observer<string>) {
+  myObserver = observer;
+  observer.next('hello!');
+});
+
+myObservable.subscribe(message => {
+  console.log(message);
+});
+
+myObserver.next('bye!');
+
+
+//Observable.fromEvent();
+
+const mySubj = new Subject();
+mySubj.next('bye!');
+mySubj.subscribe(message => {
+  console.log(message);
+});
+mySubj.next('bye!');
+
+// HOT | COLD
+
+// news
+
+// TV      => HOT  (Subject, Observable.fromEvent)
+// Youtube => COLD (Observable.create, Observable.of)
+
+
+
