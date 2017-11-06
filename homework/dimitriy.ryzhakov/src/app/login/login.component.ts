@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('emailInput') emailInput;
+
+  constructor() {
+  }
+
+  inputEmail() { 
+    let observable = Observable.fromEvent(this.emailInput.nativeElement, "input")
+    .debounceTime(2000).subscribe((event: KeyboardEvent) => console.log(event.target['value']));
+  }
 
   ngOnInit() {
+
   }
 
 }
