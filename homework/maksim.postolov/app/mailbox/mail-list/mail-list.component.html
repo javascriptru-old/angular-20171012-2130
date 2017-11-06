@@ -1,0 +1,14 @@
+<table class="table" style="width: 100%">
+  <tr>
+    <td>От</td>
+    <td>Тема</td>
+    <td>Дата</td>
+    <td>boxType</td>
+  </tr>
+  <tr *ngFor="let mail of mailList" (click)="openMail(mail.id, mail.boxType)" style="cursor: pointer">
+    <td>{{mail.from}}</td>
+    <td>{{mail.subject}}</td>
+    <td>{{mail.date | date:'dd.MM.yyyy'}}</td>
+    <td>{{mail.boxType}}</td>
+  </tr>
+</table>
