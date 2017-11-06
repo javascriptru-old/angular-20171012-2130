@@ -1,0 +1,8 @@
+<h2>Please, sign in:</h2>
+
+<label>login: <input type="text" (change)="_credentials.login = $event.target.value" [value]="_credentials.login"></label><br>
+<label>pass: <input type="text" (change)="_credentials.password = $event.target.value" [value]="_credentials.password"></label><br><br>
+<input type="button" value="Submit" (click)="submit()">
+
+<h2>Rx test block: </h2>
+<label>Debounce, watch console: <input id="testInput" (keyup)="term$.next($event.target.value)" type="text"></label><br>
