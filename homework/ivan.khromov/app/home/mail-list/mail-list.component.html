@@ -1,0 +1,17 @@
+<div *ngIf="_selectedFolderId; else selectFolderScreen">
+    <h3>{{_selectedFolderId}}:</h3>
+    <ul *ngIf="_letters?.length > 0; else noLettersScreen">
+        <li *ngFor="let l of _letters; let idx = index;">
+            <a routerLink="/home/mail/{{_selectedFolderId}}/{{idx}}">
+                <b>From: {{l?.from}}</b><br>
+                <b>Subject: {{l?.subject}}</b>
+            </a>
+        </li>
+    </ul>
+    <ng-template #noLettersScreen>
+        <p>No letters in this folder yet...</p>
+    </ng-template>
+</div>
+<ng-template #selectFolderScreen>
+<h3>Please select folder</h3>
+</ng-template>

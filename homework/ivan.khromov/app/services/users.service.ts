@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 @Injectable()
 export class UsersService {
-  private static URL_BASE = "http://test-api.javascript.ru/v1/ivankhr2";
+  private static URL_BASE = 'http://test-api.javascript.ru/v1/ivankhr2';
 
-  constructor(private _httpClient:HttpClient) {}
+  constructor(private _httpClient: HttpClient) {}
 
-  public postUsers(callback?):void{
-      const commonEmail = "test@test.ru";
-      const commonDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+  public postUsers(callback?): void {
+      const commonEmail = 'test@test.ru';
+      const commonDescription = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`;
 
-      let usersArr = [
+      const usersArr = [
           {
               fullName: "Mark Smith",
               email: commonEmail,
@@ -45,7 +46,7 @@ export class UsersService {
           },
       ];
 
-      let self = this;
+      const self = this;
 
       let makePostAnyway = function(res){
           console.log("delete_res: ", res);
@@ -61,22 +62,25 @@ export class UsersService {
           (err) => makePostAnyway(err)
           );
   }
-  public getUsers():Observable<User[]> {
+  public getUsers(): Observable<User[]> {
       let self = this;
       const res = Observable.create((observer) => {
-          let tmpUserArr:User[] = [];
-          self._httpClient.get(UsersService.URL_BASE + '/users').subscribe((users) => {
+          let tmpUserArr: User[] = [];
+          self._httpClient.get<any[]>(UsersService.URL_BASE + '/users').subscribe((users) => {
 
-              //TODO: я хотел использовать forEach, но ts пишет, что users - не массив.
-              //TODO: можно ли как то указать, что в данном случае это точно массив?
-              //TODO: сделать какой то cast и т.д. пришлось пользоваться старым методом.
-              //     users.forEach((u) => {
-              //         tmpUserArr.push(new User(u));
-              //     });
+              // TODO: я хотел использовать forEach, но ts пишет, что users - не массив.
+              // TODO: можно ли как то указать, что в данном случае это точно массив?
+              // TODO: сделать какой то cast и т.д. пришлось пользоваться старым методом.
 
-              for (let i = 0; i < Object.keys(users).length; i++) {
-                  tmpUserArr.push(new User(users[i]));
-              }
+              // TODO: ОТВЕТ: например вот так, указав в get генерик <any[]>
+
+              users.forEach((u) => {
+                  tmpUserArr.push(new User(u));
+              });
+
+              // for (let i = 0; i < Object.keys(users).length; i++) {
+              //     tmpUserArr.push(new User(users[i]));
+              // }
 
               observer.next(tmpUserArr);
           });

@@ -1,0 +1,9 @@
+<h2>Letter viewer: </h2>
+<div *ngIf="_selectedLetter; else showErrorScreen">
+    <b>From: {{_selectedLetter?.from}}</b><br>
+    <b>Subject: {{_selectedLetter?.subject}}</b>
+    <p>{{_selectedLetter?.body}}</p>
+</div>
+<ng-template #showErrorScreen>
+    <p>Unfortunately something bad has happened..</p>
+</ng-template>
