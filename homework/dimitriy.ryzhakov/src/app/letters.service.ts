@@ -17,4 +17,8 @@ export class LettersService {
     return this._http.get<Iletter>('https://api.mlab.com/api/1/databases/angular/collections/' + categoryId + postId + '?apiKey=IDfsaUTMyV7Yis-KmKjiO-51QX9RRxvM');
   }
 
+  postUsers(dataUrl) {
+    return this._http.post('https://api.mlab.com/api/1/databases/angular/collections/', dataUrl + '?apiKey=IDfsaUTMyV7Yis-KmKjiO-51QX9RRxvM');
+  }
+
 }

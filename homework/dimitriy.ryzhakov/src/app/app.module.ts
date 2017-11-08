@@ -18,6 +18,11 @@ import {BoxListComponent} from './box/box-list/box-list.component';
 import {LettersService} from "./letters.service";
 import {LetterComponent} from './box/box-list/letter/letter.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import {FormsModule} from "@angular/forms";
+import { NameValidatorDirective } from './validators/name-validator.directive';
+import { EmailValidatorDirective } from './validators/email-validator.directive';
+import { SexValidatorDirective } from './validators/sex-validator.directive';
+import { BirthdatValidatorDirective } from './validators/birthdat-validator.directive';
 
 
 const apiKey = '?apiKey=IDfsaUTMyV7Yis-KmKjiO-51QX9RRxvM';
@@ -114,6 +119,10 @@ const appRoutes: Routes = [
     BoxListComponent,
     LetterComponent,
     NavigationComponent,
+    NameValidatorDirective,
+    EmailValidatorDirective,
+    SexValidatorDirective,
+    BirthdatValidatorDirective,
 
   ],
   imports: [
@@ -123,7 +132,8 @@ const appRoutes: Routes = [
     BsDropdownModule.forRoot(),
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
+    FormsModule
   ],
   providers: [
     UsersService,
