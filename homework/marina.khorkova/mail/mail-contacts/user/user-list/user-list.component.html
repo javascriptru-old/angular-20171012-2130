@@ -1,18 +1,65 @@
-<!-- <h2>Add user</h2>
-<input type="text" placeholder="Full Name" #userNameInput>
-<input type="email" value="" placeholder="Email" #userEmailInput>
-<button (click)="addUser({fullName: userNameInput.value, email: userEmailInput.value}); userNameInput.value = ''; userEmailInput.value = ''">Add</button>
+<div class="row">
+  <div class="col-12 col-md-8">
+    <h3>Список контактов</h3>
+    <ul class="user-list">
+      <li *ngFor="let user of users" class="user-list__item">
+        <app-user-card
+          [class.is-selected]="user === selectedUser"
+          [user]="user"
+          (click)="onSelect(user)"
+          (onDelete)="deleteUser($event)"
+        ></app-user-card>
+      </li>
+    </ul>
+  </div>
 
-<br><br> -->
-
-<!-- <h2>User list</h2> -->
-<ul class="user-list">
-  <li *ngFor="let user of users" class="user-list__item">
-    <app-user-card
-      [class.is-selected]="user === selectedUser"
-      [user]="user"
-      (click)="onSelect(user)"
-      (onDelete)="deleteUser($event)"
-    ></app-user-card>
-  </li>
-</ul>
+  <div class="col-12 col-md-4">
+    <h3>Добавить новый контакт</h3>
+    <form [formGroup]="addForm" novalidate>
+      <div class="form-group">
+        <input type="text" placeholder="Имя" class="form-control" formControlName="firstName" required>
+        <div *ngIf="addForm.controls.firstName?.errors?.required">
+            Имя является обязательным полем
+        </div>
+        <div *ngIf="addForm.controls.firstName?.errors?.minlength">
+            Минимальное количество символов 2
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Фамилия" class="form-control" formControlName="lastName" required>
+        <div *ngIf="addForm.controls.lastName?.errors?.required">
+            Фамилия является обязательным полем
+        </div>
+        <div *ngIf="addForm.controls.lastName?.errors?.minlength">
+            Минимальное количество символов 2
+        </div>
+      </div>
+      <div class="form-group">
+        <select class="form-control" formControlName="gender">
+          <option value="">Пол</option>
+          <option value="M">Мужской</option>
+          <option value="F">Женский</option>
+        </select>
+        <div *ngIf="addForm.controls.gender?.errors?.required">
+            Пол является обязательным полем
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="date" placeholder="Дата рождения" class="form-control" formControlName="birthdate">
+        <div *ngIf="addForm.controls.birthdate?.errors?.validAge">
+            {{ addForm.controls.birthdate.errors.validAge.message }}
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="email" placeholder="Email" class="form-control" formControlName="mail" required>
+        <div *ngIf="addForm.controls.mail?.errors?.required">
+            Email является обязательным полем
+        </div>
+        <div *ngIf="addForm.controls.mail?.errors?.email">
+            Введите корректный e-mail
+        </div>
+      </div>
+      <button type="button" class="btn" [disabled]="!addForm.valid" (click)="addUser(user)">Добавить</button>
+    </form>
+  </div>
+</div>
