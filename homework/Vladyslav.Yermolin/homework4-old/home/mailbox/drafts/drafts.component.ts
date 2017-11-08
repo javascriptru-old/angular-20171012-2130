@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import lettersArr from '../../letters';
+import lettersArr from '../letters';
 
 @Component({
   selector: 'app-drafts',

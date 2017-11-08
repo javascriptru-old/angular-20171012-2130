@@ -1,6 +1,6 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import lettersArr from '../../letters';
+import lettersArr from '../letters';
 
 @Component({
   selector: 'app-letter-big',
