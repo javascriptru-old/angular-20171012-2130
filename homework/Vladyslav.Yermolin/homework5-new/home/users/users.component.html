@@ -1,0 +1,17 @@
+<ul class="cards-list">
+  <li
+      *ngFor="let user of users"
+      [class]="user?.selected"
+  >
+    <app-user-card
+        *ngIf="!user.hidden"
+        [user]="user"
+        (cardSelected)="selectUser(user)"
+        (cardHide)="hideCard(user)"
+        (userDelete)="deleteUser(user._id)"
+    ></app-user-card>
+  </li>
+</ul>
+<button (click)="addUser()">Add default user</button>
+
+<app-add-user></app-add-user>

@@ -1,0 +1,17 @@
+.main {
+  display: flex;
+}
+.aside {
+  margin: 20px;
+}
+.nav-list {
+  list-style: none;
+}
+
+.nav-item {
+  margin: 10px;
+}
+
+.active {
+  background-color: #8f82ee;
+}

@@ -1,0 +1,11 @@
+.wrapper {
+  margin: 10px 30px;
+}
+.top-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  text-align: center;
+}

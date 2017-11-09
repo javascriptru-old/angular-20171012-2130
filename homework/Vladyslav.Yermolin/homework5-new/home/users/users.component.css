@@ -1,0 +1,15 @@
+.cards-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 10px;
+}
+
+.selected {
+  transform: scale(1.1);
+  transition: all 1s;
+}
