@@ -5,17 +5,23 @@
     <p></p>
   </div>
 
-  Enter username:
-  <input #usernameElement>
-  <p></p>
-  Enter email:
-  <input #emailElement>
+  <form [formGroup]="newUserControl">
+    Enter first name:
+    <input #usernameElement
+           formControlName="firstName"><div *ngIf="isFieldValid('firstName')" style="color: red">enter first name</div>
+    <p></p>
+    Enter email:
+    <input #emailElement formControlName="emailInput"> <div *ngIf="isFieldValid('emailInput')" style="color: red">incorrect email</div>
 
-  <p></p>
+    <p></p>
 
-  <button (click)="addUser(usernameElement.value, emailElement.value);
+    <button type="submit"
+            [disabled]="!newUserControl.valid"
+            (click)="addUser(usernameElement.value, emailElement.value);
                            usernameElement.value = ''; emailElement.value = '';">
-    Add user
-  </button>
+      Add user
+    </button>
+  </form>
+
 
 

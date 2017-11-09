@@ -15,6 +15,7 @@ import {UserService} from "./user/user.service";
 import {UserCardComponent} from "./header/user-card/user-card.component";
 import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './home/home.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const routes = [
   {path: '', component: LoginComponent},
@@ -50,6 +51,8 @@ const routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [MailService, UserService],
