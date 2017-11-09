@@ -20,22 +20,22 @@ export class UserComponent implements OnInit {
 
 
   getItem(id) {
-    this.userService.removeUser(id._id).subscribe(res => {
-
-      this.oneUser = null;
-    });
+    // this.userService.removeUser(id._id).subscribe(res => {
+    //   this.oneUser = null;
+    // });
 
 
   }
 
 
   ngOnInit() {
-    console.log(this.userId)
     this.userService.getOneUser(this.userId).subscribe(response => {
-      this.oneUser = response;
-    }
-
+        this.oneUser = response;
+      }
     );
+
+    // this.userService.removeUser().subscribe();
+
   }
 
 }

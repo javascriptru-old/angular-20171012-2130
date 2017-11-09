@@ -9,7 +9,7 @@ export class BirthdatePipe implements PipeTransform {
         const date = new Date(value);
         const dateYear = date.getFullYear();
         const dateDay = date.getDate();
-        const dateMonth = date.getMonth();
+        const dateMonth = date.getMonth() + 1;
 
         return `${dateDay}/${dateMonth}/${dateYear}`;
     }

@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   constructor() {
   }
 
-  inputEmail() { 
+  inputEmail() {
     let observable = Observable.fromEvent(this.emailInput.nativeElement, "input")
     .debounceTime(2000).subscribe((event: KeyboardEvent) => console.log(event.target['value']));
   }
