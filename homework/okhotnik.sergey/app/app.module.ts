@@ -1,27 +1,46 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule, OnInit} from '@angular/core';
+import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {HttpClientModule} from '@angular/common/http';
-import {UserCardComponent} from './components/user-card/user-card.component';
-import {UserListComponent} from './components/user-list/user-list.component';
-import {UserService} from './services/user.service';
+import {RouterModule} from '@angular/router';
+import {LoginComponent} from './login/login.component';
+import {MailboxComponent} from './mailbox/mailbox.component';
+import {LetterComponent} from './letter/letter.component';
+import {MailboxService} from './mailbox.service';
+import { EntryComponent } from './mailbox/entry/entry.component';
+
+const routes = [
+  {
+    path: 'login', component: LoginComponent,
+  },
+  {
+    path: 'mailbox', component: MailboxComponent
+  },
+  {
+    path: 'mailbox/:letterId', component: LetterComponent
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserCardComponent,
-    UserListComponent
+    MailboxComponent,
+    LoginComponent,
+    LetterComponent,
+    MailboxComponent,
+    EntryComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    RouterModule.forRoot(routes)
   ],
-  providers: [UserService],
+  providers: [MailboxService],
   bootstrap: [AppComponent]
 })
-export class AppModule{
-
-
+export class AppModule {
 }
-
