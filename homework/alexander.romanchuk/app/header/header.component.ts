@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../user/user.service";
 import {HttpClient} from "@angular/common/http";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,7 @@ import {HttpClient} from "@angular/common/http";
 export class HeaderComponent implements OnInit {
 
   public users;
+  newUserControl: FormGroup;
 
   constructor(private _userService: UserService) {
   }
@@ -17,6 +19,17 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this._userService.getAll().subscribe(users => this.users = users);
+
+    this.newUserControl = new FormGroup({
+      firstName: new FormControl('',[Validators.minLength(2), Validators.required]),
+      emailInput: new FormControl('',[Validators.email, Validators.required])
+    });
+
+    this.newUserControl.valueChanges.subscribe((value) => console.log(value));
+    this.newUserControl.statusChanges.subscribe((status) => {
+      console.log(this.newUserControl.errors);
+      console.log(status);
+    });
   }
 
 
@@ -36,9 +49,10 @@ export class HeaderComponent implements OnInit {
   }
 
   addUser(name: string, email: string){
-    if(!name){
-      return;
-    }
     this._userService.add(name, email).subscribe(() => this.ngOnInit());
+  }
+
+  isFieldValid(field: string) {
+    return (!this.newUserControl.get(field).valid && this.newUserControl.get(field).touched);
   }
 }
