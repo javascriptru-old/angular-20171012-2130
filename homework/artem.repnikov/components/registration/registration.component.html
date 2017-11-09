@@ -1,0 +1,7 @@
+<form [formGroup]="regForm">
+  <div formArrayName="fields">
+    <label *ngFor="let field of regForm.controls.fields.controls; let i = index">
+      <input formControlName="{{ i }}">
+    </label>
+  </div>
+</form>

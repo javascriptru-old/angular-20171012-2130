@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { MailListComponent } from './components/mail-list/mail-list.component';
@@ -18,31 +19,43 @@ import { AuthGuard } from './guards/auth/auth.guard';
 import { MailService } from './services/mail/mail.service';
 import { MailsService } from './services/mails/mails.service';
 import { UserService } from "./services/user/user.service";
+import { RegistrationComponent } from './components/registration/registration.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
+// над структурой роутов еще работаю
 const routes: Routes = [
   { path: '',
-    redirectTo: 'mails/inbox',
     pathMatch: 'full',
-    canActivate: [AuthGuard]
-  },
-  { path: 'mails/:type',
-    component: MailListComponent,
+    component: DashboardComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: ':id',
-        component: MailComponent,
-        canActivate: [AuthGuard],
+      { path: '',
+        pathMatch: 'full',
+        redirectTo: 'mails/inbox'
+      },
+      { path: 'mails/:type',
+        component: MailListComponent,
+        children: [
+          { path: 'mails',
+            redirectTo: 'inbox'
+          },
+          { path: ':id',
+            component: MailComponent
+          }
+        ]
+      },
+      { path: 'addresses',
+        component: UserListComponent,
+        children: [
+          { path: ':id',
+            component: UserComponent
+          }
+        ]
       }
     ]
   },
-  { path: 'addresses',
-    component: UserListComponent,
-    children: [
-      { path: ':id',
-        component: UserComponent,
-        canActivate: [AuthGuard],
-      }
-    ]
+  { path: 'reg',
+    component: RegistrationComponent
   },
   { path: 'login',
     component: LoginComponent
@@ -62,12 +75,16 @@ const routes: Routes = [
     NavbarComponent,
     UserListComponent,
     UserComponent,
-    UserLinkComponent
+    UserLinkComponent,
+    RegistrationComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,
