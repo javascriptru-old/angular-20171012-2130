@@ -1,6 +1,11 @@
-<div class="container">
-  <div class="row">
-    <app-user-card class='col-6' *ngFor="let user of users" [userFromNgFor]="user" (userRemoved)="removeUser(user)"
-                   (cardSelected)="selectCard(user)"></app-user-card>
-  </div>
-</div>
+<nav>
+  <a  routerLink="login" routerLinkActive="active" routerLinkActiveOptions="{exact: true}"
+     (loggedIn)="doLogin()">
+    login
+  </a>
+    <a *ngFor="let role of roles" routerLink="mailbox" routerLinkActive="active" [queryParams]="{'role': role}">
+      {{role}}
+    </a>
+</nav>
+
+<router-outlet></router-outlet>
