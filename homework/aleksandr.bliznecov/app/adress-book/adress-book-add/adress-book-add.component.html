@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="rov">
+    <div class="col-lg-6">
+      <form [formGroup]="form">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" placeholder="Email" formControlName="email" 
+            required>
+        </div>
+        <div class="form-group">
+          <label>Имя </label>
+          <input type="text" class="form-control" placeholder="Арсений" formControlName="name" 
+            required>
+        </div>
+
+        <div class="form-group">
+          <label >Фамилия </label>
+          <input type="text" class="form-control" placeholder="Бекмамендов" formControlName="surname"             required>
+        </div>
+
+        <fieldset class="form-group" >
+          <legend>Выбор пола</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio"  class="form-check-input" value="F" formControlName="gender" name="gender"> Мужчина
+            </label>
+          </div>
+          <div class="form-check" >
+            <label class="form-check-label">
+              <input type="radio"  class="form-check-input" value="M" formControlName="gender" name="gender"> Женщина
+            </label>
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <label for="">Даша рождений</label>
+          <input type="date" formControlName="birthday">
+        </div>
+        <div class="btn btn-success" (click)="submitForm()">Добавить</div>
+      </form>
+    </div>
+  </div>
+</div>

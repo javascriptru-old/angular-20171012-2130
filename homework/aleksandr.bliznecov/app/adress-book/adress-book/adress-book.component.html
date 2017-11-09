@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let item of adress; let i = index" class="col-lg-3">
+      <app-adress-book-item [adres]="item"></app-adress-book-item>
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" routerLink="addAdres">Добавить адрес</button>
+</div>

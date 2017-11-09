@@ -1,9 +1,0 @@
-<ng-container *ngIf="letter.from">
-  From: {{letter.from.fullName}} <{{letter.from.email}}>
-  <br>
-</ng-container>
-<ng-container *ngIf="letter.to">
-  To: {{letter.to.fullName}} <{{letter.to.email}}>
-  <br>
-</ng-container>
-Subject: <a [routerLink]="['/mail', boxId, letter._id]">{{letter.subject}}</a>
