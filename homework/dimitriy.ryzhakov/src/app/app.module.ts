@@ -18,7 +18,7 @@ import {BoxListComponent} from './box/box-list/box-list.component';
 import {LettersService} from "./letters.service";
 import {LetterComponent} from './box/box-list/letter/letter.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NameValidatorDirective } from './validators/name-validator.directive';
 import { EmailValidatorDirective } from './validators/email-validator.directive';
 import { SexValidatorDirective } from './validators/sex-validator.directive';
@@ -133,7 +133,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     UsersService,
