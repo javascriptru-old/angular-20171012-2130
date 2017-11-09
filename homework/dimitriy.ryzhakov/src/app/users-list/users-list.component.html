@@ -1,39 +1,93 @@
 <app-navigation></app-navigation>
 
-<form class="form-add-user" [ngClass]="{invalidForm: FormInvalid}" #formUSer="ngForm" (submit)="addUser(formUSer)">
-  <div class="form-group">
-    <input class="form-control" #name="ngModel" ngModel name="FirstName" appNameValidator required  placeholder="First name">
+<!--<form class="form-add-user" [ngClass]="{invalidForm: FormInvalid}" #formUSer="ngForm" (submit)="addUser(formUSer)">-->
+<!--<div class="form-group">-->
+<!--<input class="form-control" #name="ngModel" ngModel name="FirstName" appNameValidator required  placeholder="First name">-->
 
-    <div class="error-mess" *ngIf="!name.valid && !formUSer.form.controls['FirstName'].pristine">
-      {{formUSer.form.controls['FirstName'].errors.nameValidator.error }}
+<!--<div class="error-mess" *ngIf="!name.valid && !formUSer.form.controls['FirstName'].pristine">-->
+<!--{{formUSer.form.controls['FirstName'].errors.nameValidator.error }}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group">-->
+<!--<input class="form-control" #secondName="ngModel" name="SecondName" appNameValidator required ngModel placeholder="Second name">-->
+<!--<div class="error-mess" *ngIf="!secondName.valid && !formUSer.form.controls['SecondName'].pristine">-->
+<!--{{formUSer.form.controls['SecondName'].errors.nameValidator.error }}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group">-->
+<!--<select class="form-control"  #sex="ngModel" name="sex" ngModel appSexValidator required>-->
+<!--<option value="">select gender</option>-->
+<!--<option value="Male">Male</option>-->
+<!--<option value="Female">Female</option>-->
+<!--</select>-->
+<!--<div class="error-mess" *ngIf="!sex.valid && !formUSer.form.controls['sex'].pristine">-->
+<!--{{formUSer.form.controls['sex'].errors.sexValidator.error }}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group">-->
+<!--<input class="form-control" type="date"  #birthdate="ngModel" appBirthdatValidator name="birthdate" ngModel placeholder="1991-03-22">-->
+<!--<div class="error-mess" *ngIf="!birthdate.valid && !formUSer.form.controls['birthdate'].pristine">-->
+<!--{{formUSer.form.controls['birthdate'].errors.birthdatValidator.error }}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group">-->
+<!--<input class="form-control" #email="ngModel"  name="email" appEmailValidator ngModel placeholder="Email">-->
+<!--<div class="error-mess" *ngIf="!email.valid && !formUSer.form.controls['email'].pristine">-->
+<!--{{formUSer.form.controls['email'].errors.emailValidator.error }}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group">-->
+<!--<button class="btn">Submit</button>-->
+<!--</div>-->
+<!--</form>-->
+
+<!--<ul class="users-list">-->
+<!--<li class="item" *ngFor="let user of data" [routerLink]="user._id">-->
+<!--<div>-->
+<!--<div class="wrapper">-->
+<!--<div class="name">{{user?.fullName}}</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</li>-->
+<!--</ul>-->
+
+
+<form class="form-add-user" [formGroup]="addUserForm" (submit)="addUser(addUserForm)" [ngClass]="{invalidForm: FormInvalid}">
+  <div class="name-wrapper">
+    <div class="form-group">
+      <input class="form-control" formControlName="first" placeholder="First name">
+      <div class="error-mess" *ngIf="!addUserForm.controls.first.valid && !addUserForm.controls.first.pristine">
+        {{addUserForm.controls.first.errors.nameValidator.error}}
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="last" placeholder="Last name">
+      <div class="error-mess" *ngIf="!addUserForm.controls.last.valid && !addUserForm.controls.last.pristine">
+        {{addUserForm.controls.last.errors.nameValidator.error}}
+      </div>
     </div>
   </div>
   <div class="form-group">
-    <input class="form-control" #secondName="ngModel" name="SecondName" appNameValidator required ngModel placeholder="Second name">
-    <div class="error-mess" *ngIf="!secondName.valid && !formUSer.form.controls['SecondName'].pristine">
-      {{formUSer.form.controls['SecondName'].errors.nameValidator.error }}
-    </div>
-  </div>
-  <div class="form-group">
-    <select class="form-control"  #sex="ngModel" name="sex" ngModel appSexValidator required>
-      <option value="">select gender</option>
+    <select class="form-control" formControlName="genderControl">
+      <option selected value> -- select gender --</option>
       <option value="Male">Male</option>
       <option value="Female">Female</option>
     </select>
-    <div class="error-mess" *ngIf="!sex.valid && !formUSer.form.controls['sex'].pristine">
-      {{formUSer.form.controls['sex'].errors.sexValidator.error }}
+    <div class="error-mess" *ngIf="!addUserForm.controls.genderControl.valid && !addUserForm.controls.genderControl.pristine">
+      {{addUserForm.controls.genderControl.errors.sexValidator.error}}
     </div>
   </div>
   <div class="form-group">
-    <input class="form-control" type="date"  #birthdate="ngModel" appBirthdatValidator name="birthdate" ngModel placeholder="1991-03-22">
-    <div class="error-mess" *ngIf="!birthdate.valid && !formUSer.form.controls['birthdate'].pristine">
-      {{formUSer.form.controls['birthdate'].errors.birthdatValidator.error }}
+  <input class="form-control" type="date" formControlName="birthdateControl"  placeholder="1991-03-22">
+    <div class="error-mess" *ngIf="!addUserForm.controls.birthdateControl.valid && !addUserForm.controls.birthdateControl.pristine">
+      {{addUserForm.controls.birthdateControl.errors.birthdatValidator.error}}
     </div>
   </div>
   <div class="form-group">
-    <input class="form-control" #email="ngModel"  name="email" appEmailValidator ngModel placeholder="Email">
-    <div class="error-mess" *ngIf="!email.valid && !formUSer.form.controls['email'].pristine">
-      {{formUSer.form.controls['email'].errors.emailValidator.error }}
+    <input class="form-control" formControlName="emailControl" placeholder="Your email">
+
+    <div class="error-mess" *ngIf="!addUserForm.controls.emailControl.valid && !addUserForm.controls.emailControl.pristine">
+      {{addUserForm.controls.emailControl.errors.emailValidator.error}}
     </div>
   </div>
   <div class="form-group">
@@ -41,25 +95,16 @@
   </div>
 </form>
 
-<!--<ul class="users-list">-->
-  <!--<li class="item" *ngFor="let user of data" [routerLink]="user._id">-->
-    <!--<div>-->
-      <!--<div class="wrapper">-->
-        <!--<div class="name">{{user?.fullName}}</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</li>-->
-<!--</ul>-->
 
 <ul class="users-list">
   <li class="item" *ngFor="let item of dataUser">
     <div>
       <div class="wrapper">
-        <div class="name">{{item?.FirstName}}</div>
-        <div class="name">{{item?.SecondName}}</div>
-        <div class="name">{{item?.sex}}</div>
-        <div class="name">{{item?.birthdate | birthdate}}</div>
-        <div class="name">{{item?.email}}</div>
+        <div class="name">{{item?.first}}</div>
+        <div class="name">{{item?.last}}</div>
+        <div class="name">{{item?.genderControl}}</div>
+        <div class="name">{{item?.birthdateControl | birthdate}}</div>
+        <div class="name">{{item?.emailControl}}</div>
       </div>
     </div>
   </li>
