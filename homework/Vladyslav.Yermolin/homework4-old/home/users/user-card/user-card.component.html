@@ -1,0 +1,33 @@
+
+  <div class="user-card" (click)="selectCard()">
+
+    <div class="profile">
+      <div class="image">
+        <img src="{{user.avatarUrl}}" width="70" height="70" alt="{{user.fullName}}">
+      </div>
+
+      <div class="name">{{user.fullName}}</div>
+      <div class="birthdate">{{user.birthdate | date}}</div>
+      <div class="email">{{user.email}}</div>
+
+      <div class="actions">
+        <button class="btn" (click)="hideCard()">Hide User</button>
+        <button class="btn" (click)="deleteUser($event)" >Delete User</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="box">
+        <span class="value">523</span>
+        <span class="parameter">Posts</span>
+      </div>
+      <div class="box">
+        <span class="value">1387</span>
+        <span class="parameter">Likes</span>
+      </div>
+      <div class="box">
+        <span class="value">146</span>
+        <span class="parameter">Follower</span>
+      </div>
+    </div>
+</div>

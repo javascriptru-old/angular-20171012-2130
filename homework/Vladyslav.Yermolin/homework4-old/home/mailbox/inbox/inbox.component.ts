@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import lettersArr from '../../letters';
+import lettersArr from '../letters';
 
 @Component({
   selector: 'app-inbox',
@@ -9,7 +10,10 @@ import lettersArr from '../../letters';
 })
 export class InboxComponent implements OnInit {
   public letters = lettersArr;
-  constructor() { }
+  constructor(private route: ActivatedRoute) {
+    this.route.data
+        .subscribe(data => console.log(data));
+  }
 
   ngOnInit() {
   }
