@@ -1,0 +1,33 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
+* {
+  box-sizing: border-box;
+}
+form {
+  width: 350px;
+  box-shadow: 10px 10px 15px 0 rgba(0,0,0,0.3);
+}
+
+fieldset {
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: none;
+}
+
+label {
+  color: #555;
+  width: 20%;
+  margin: 10px;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+input,
+select{
+  outline: none;
+  width: 60%;
+  margin: 10px;
+}
+
