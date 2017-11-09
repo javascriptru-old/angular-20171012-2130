@@ -4,7 +4,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent,
+    data: {
+      name: 'John',
+      title: 'Something',
+      noreload: false
+    } },
   { path: 'user', outlet: 'popup', component:  LoginComponent},
   { path: 'user', component: UserComponent,
     children: [

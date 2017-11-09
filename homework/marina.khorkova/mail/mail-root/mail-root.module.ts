@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -12,11 +13,11 @@ import { MailService } from '../services/mail.service';
 import { LetterService } from '../services/letter.service';
 import { UserService } from '../mail-contacts/user/services/user.service';
 import { InitialsPipe } from '../../pipes/initials.pipe';
-import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: '',
@@ -51,8 +52,7 @@ import { MenuComponent } from './menu/menu.component';
     MailContactsComponent,
     UserListComponent,
     UserCardComponent,
-    InitialsPipe,
-    MenuComponent
+    InitialsPipe
   ],
   providers: [
     UserService,

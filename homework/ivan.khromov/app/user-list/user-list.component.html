@@ -1,8 +1,8 @@
-<h1>Список пользователей</h1>
+<h2>Contact list:</h2>
 
-<div class="app-user-list">
-  <ul>
-    <li *ngFor="let u of userList" [class]="u.selected ? 'selected':''" (click)="selectUser(u);">
+<div *ngIf="!_selectedUser?.infoObject; else screenUserDetails" class="app-user-list">
+  <ul *ngIf="userList?.length > 0; else showErrorScreen">
+    <li *ngFor="let u of userList; let idx = index" [class]="u.selected ? 'selected':''" (click)="selectUser(u, idx);">
       <app-user-card
               [user]="u"
               (onRemove)="deleteUser($event)"
@@ -10,4 +10,11 @@
       </app-user-card>
     </li>
   </ul>
+  <ng-template #showErrorScreen>
+    <p>No users in userList...</p>
+  </ng-template>
 </div>
+<ng-template #screenUserDetails>
+  <h2>User {{_selectedUser.infoObject?.fullName}} details: </h2>
+  <p>{{_selectedUser.infoObject?.address}}</p>
+</ng-template>

@@ -13,3 +13,21 @@
   background-color: #f5f5f5;
   box-shadow: 0 0 15px #cccccc;
 }
+
+input.ng-touched.ng-invalid,
+select.ng-touched.ng-invalid{
+  border-color: red;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+input ~ div,
+select ~ div{
+  display: none;
+}
+
+input.ng-touched.ng-invalid ~ div,
+select.ng-touched.ng-invalid ~ div{
+  display: block;
+  font-size: 12px;
+  color: red;
+}

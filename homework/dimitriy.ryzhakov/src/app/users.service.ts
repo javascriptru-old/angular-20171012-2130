@@ -47,11 +47,11 @@ export class UsersService {
   }
 
   postUsers(dataUrl) {
-    return this._http.post('http://test-api.javascript.ru/v1/dimitriyryzhakov/', dataUrl);
+    return this._http.post('http://test-api.javascript.ru/v1/dimitriyryzhakov/users/', dataUrl);
   }
 
-  removeUser(_id) {
-    return this._http.delete('http://test-api.javascript.ru/v1/dimitriyryzhakov/users/' + _id,
+  removeUser() {
+    return this._http.delete('http://test-api.javascript.ru/v1/dimitriyryzhakov/users/',
         { responseType: 'text'});
   }
 
