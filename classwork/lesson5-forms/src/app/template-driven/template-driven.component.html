@@ -1,7 +1,5 @@
-<form #f="ngForm" (ngSubmit)="dosomething(f)">
-  <!-- <input #m="ngModel" [ngModel]="name"> -->
-  <input name="firstName" ngModel required appNameValidator>
-  <span *ngIf="!f.valid">
-    {{f.controls['firstName'].errors.nameValidator.error }}
-  </span>
-</form>
+
+<input ngModel #m="ngModel" mask="9999-99-99">
+{{m.dirty}} 
+{{m.pristine}} 
+{{m.touched}} 

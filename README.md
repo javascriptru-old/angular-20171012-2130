@@ -38,7 +38,11 @@ Angular. Что подготовить(или уже знать)?
 
 
 Сдача курсового
-[]
+[16.11]
+[ИМЯ] - [код (github)] - [демо (github-page)]
+
+
+[20.11] 
 [ИМЯ] - [код (github)] - [демо (github-page)]
 
 
@@ -51,5 +55,8 @@ Angular. Что подготовить(или уже знать)?
 
 Дополнительные вопросы:
 
-- NG_VALIDATORS (список)
 - f.controls.firstName
+
+- Производительность Angular
+- Change Detection
+- SSR
