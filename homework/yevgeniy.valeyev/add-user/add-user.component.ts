@@ -25,13 +25,15 @@ export class AddUserComponent implements OnInit {
     email: new FormControl('', [
       UserValidators.correctEmail,
       Validators.required
+    ], [
+      this.userValidators.isUniqueEmail()
     ]),
     gender: new FormControl('', [
       Validators.required
     ])
   })
 
-  constructor() { }
+  constructor(private userValidators: UserValidators) { }
 
   ngOnInit() {}
 
