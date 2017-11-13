@@ -1,0 +1,14 @@
+<div class='card'>
+
+  <a class="close-button"></a>
+  <h4 class="card-title">
+    <span>mrs.</span>
+    {{user?.fullName}}
+  </h4>
+
+  <img class="card-img-top" src="{{user?.avatarUrl}}" alt="Card image cap">
+  <span class="date-of-birth">{{user?.birthdate | date}}</span>
+  <p class="card-text">
+    {{user?.address}}
+  </p>
+</div>

@@ -1,11 +1,15 @@
 <nav>
-  <a  routerLink="login" routerLinkActive="active" routerLinkActiveOptions="{exact: true}"
+  <a routerLink="login" routerLinkActive="active" routerLinkActiveOptions="{exact: true}"
      (loggedIn)="doLogin()">
     login
   </a>
-    <a *ngFor="let role of roles" routerLink="mailbox" routerLinkActive="active" [queryParams]="{'role': role}">
-      {{role}}
-    </a>
+
+  <a routerLink="mail" routerLinkActive="active" routerLinkActiveOptions="{exact: true}">
+    mail
+  </a>
+  <a routerLink="users" routerLinkActive="active" routerLinkActiveOptions="{exact: true}">
+    users
+  </a>
 </nav>
 
 <router-outlet></router-outlet>

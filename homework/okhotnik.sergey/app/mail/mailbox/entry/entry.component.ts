@@ -16,8 +16,8 @@ export class EntryComponent implements OnInit {
   ngOnInit() {
   }
 
-  emailClick() {
-    this.router.navigate(['mailbox/' + this.letter.id]);
-  }
+  // emailClick() {
+  //   this.router.navigate(['mailbox/' + this.letter.id]);
+  // }
 
 }
