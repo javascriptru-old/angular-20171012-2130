@@ -1,0 +1,4 @@
+<a *ngFor="let role of roles" routerLink="mailbox" routerLinkActive="active" [queryParams]="{'role': role}">
+  {{role}}
+</a>
+<router-outlet></router-outlet>

@@ -1,0 +1,5 @@
+<router-outlet></router-outlet>
+<div *ngIf="users.length">
+  <app-user-list-entry *ngFor="let user of users" [user]="user">{{user.name}}
+  </app-user-list-entry>
+</div>

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MailboxService} from '../mailbox.service';
+import {MailboxService} from '../services/mailbox.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
