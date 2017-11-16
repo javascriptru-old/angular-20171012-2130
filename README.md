@@ -40,7 +40,7 @@ Angular. Что подготовить(или уже знать)?
 Сдача курсового
 [16.11]
 [ИМЯ] - [код (github)] - [демо (github-page)]
-Денис  
+Денис Мурзин 
 https://github.com/morf2k7/server-angular-course
 https://github.com/morf2k7/client-angular-course
 http://5.35.77.22:8080 (Демо будет доступно чуть похже)
