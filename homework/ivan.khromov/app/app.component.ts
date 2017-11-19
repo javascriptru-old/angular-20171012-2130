@@ -1,21 +1,21 @@
 
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from './services/auth.service';
 import { UsersService } from './services/users.service';
-import { User } from './services/users.service';
 
 import { COMMON_URL } from './app.module';
 
+import * as ICustom from './app.definitions';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-    public userList: User[] = [];
+export class AppComponent implements OnInit {
+    public userList: ICustom.IUser[] = [];
     private _showPreloader = false;
     tmpVal: string;
 
@@ -27,6 +27,9 @@ export class AppComponent {
 
     ngOnInit() {
         this.checkAuthorization();
+
+        // push тестовых пользователей
+        this._userService.postUsers().subscribe(res => console.log('Users refreshed: true'));
     }
 
     checkAuthorization() {

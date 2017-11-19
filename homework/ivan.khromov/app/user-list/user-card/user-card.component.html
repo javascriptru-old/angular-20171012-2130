@@ -1,5 +1,7 @@
-<img [src]="user.infoObject?.avatarUrl" />
-<h3>{{user.infoObject?.fullName}}</h3>
-<span>Born: </span><i>{{ user.infoObject.birthdate | date:"dd.MM.yyyy"}}</i>
-<p>{{user.infoObject?.address}}</p>
-<div class="btn-remove" (click)="removeCard(user.infoObject?._id);"></div>
+<div (click)="cardSelected()">
+    <img [src]="user.rowUser?.avatarUrl" />
+    <h3>{{user.rowUser?.fullName}}</h3>
+    <span>Born: </span><i>{{ user.rowUser.birthdate | date:"dd.MM.yyyy"}}</i>
+    <p>{{user.rowUser?.address}}</p>
+    <div class="btn-remove" (click)="removeCard($event, user.rowUser?._id);"></div>
+</div>
