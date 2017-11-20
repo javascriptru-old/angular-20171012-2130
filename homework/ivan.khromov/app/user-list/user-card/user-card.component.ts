@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, EventEmitter, Output} from '@angular/core';
-import { User } from "../../services/users.service";
+import * as ICustom from '../../app.definitions';
 
 
 @Component({
@@ -8,16 +8,18 @@ import { User } from "../../services/users.service";
   styleUrls: ['./user-card.component.css']
 })
 export class UserCardComponent {
-
-  //TODO: расскажи про two-way-binging. Пример применения, как создать диррективу.
-
-  @Input('user') user:User;
-  @Output('onRemove') onRemove:EventEmitter<string> = new EventEmitter();
-
+  @Input('user') user: ICustom.IUser;
+  @Output('onRemove') onRemove: EventEmitter<string> = new EventEmitter();
+  @Output() onSelect: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
-  removeCard(id:string){
+  removeCard(e: any, id: string) {
       this.onRemove.emit(id);
+      e.stopPropagation();
+  }
+
+  cardSelected() {
+    this.onSelect.emit();
   }
 
 }
