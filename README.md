@@ -50,6 +50,7 @@ http://5.35.77.22:8080 (Демо будет доступно чуть похже
 [20.11] 
 [ИМЯ] - [код (github)] - [демо (github-page)]
 Дмитрий Рыжаков -  https://github.com/dimitriyRyzhakov/angular-mailbox-copy.git (Демо будет доступно чуть позже)
+Иван Богданов -  https://github.com/IvanBogdan/testtool.git - http://195.208.109.61:807/testshop
 
 
 Дополнительные скринкасты
