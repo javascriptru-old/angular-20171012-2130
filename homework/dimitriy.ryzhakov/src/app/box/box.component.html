@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <a class="col-6" routerLink="/users" routerLinkActive="active">users</a>
+      <a class="col-6 active" routerLink="/box/inbox" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">box</a>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <a class="col-3" routerLink="inbox" routerLinkActive="active">inbox</a>
+      <a class="col-3" routerLink="sent" routerLinkActive="active">sent</a>
+      <a class="col-3" routerLink="draft" routerLinkActive="active">draft</a>
+      <a class="col-3" routerLink="spam" routerLinkActive="active">spam</a>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

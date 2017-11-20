@@ -1,0 +1,23 @@
+<form>
+  <fieldset [formGroup]="addUserControl">
+    <label for="firstName">Имя</label>
+    <input formControlName="firstName" id="firstName">
+
+    <label for="lastName">Фамилия</label>
+    <input formControlName="lastName" id="lastName">
+
+    <label for="sex">Пол</label>
+    <select formControlName="sex" id="sex">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+    <label for="birthdate">Дата рождения</label>
+    <input formControlName="birthdate" id="birthdate">
+
+    <label for="email">email</label>
+    <input formControlName="email" id="email">
+  </fieldset>
+
+    <input type="button" (click)="addUser()" value="Добавить пользователя">
+</form>

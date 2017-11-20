@@ -1,0 +1,7 @@
+<table class="letters-list">
+  <tr *ngFor="let letter of letters" class="letter-row">
+    <a [routerLink]="letter.id">
+      <app-letter [letter]="letter"></app-letter>
+    </a>
+  </tr>
+</table>

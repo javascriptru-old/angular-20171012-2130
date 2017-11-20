@@ -1,0 +1,10 @@
+.material-icons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+.material-icons:hover {
+    opacity: 1;
+}

@@ -1,0 +1,9 @@
+<h1>User Cards</h1>
+
+<section class="user">
+  <article *ngFor="let user of users" (click)="changeBorderColor($event.target)" >
+    <app-user [user]="user" (userDelete)="deleteUser($event)"></app-user>
+  </article>
+</section>
+
+<button (click)="sentToDB()">заполнить базу данных</button>

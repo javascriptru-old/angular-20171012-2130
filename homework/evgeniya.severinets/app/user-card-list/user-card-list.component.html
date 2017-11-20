@@ -1,0 +1,28 @@
+<div class="user-form-wrapper">
+  <form class="user-form">
+    <mat-form-field>
+      <input matInput placeholder="User name" [(ngModel)]="user.fullName" name="fullName">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="User email" [(ngModel)]="user.email" name="email">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="User address" [(ngModel)]="user.address" name="address">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="User gender" [(ngModel)]="user.gender" name="gender">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="date" placeholder="Birthdate" [(ngModel)]="user.birthdate" name="date">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Avatar url" [(ngModel)]="user.avatarUrl" name="avatar">
+    </mat-form-field>
+  </form>
+  <button mat-button (click)="addToUsers()">Click me!</button>
+</div>
+<ul class="users-list">
+  <li *ngFor="let user of users; let index = index" (click)="onSelect(user)" [class.selected]="user === selectedUser" class="user-item">
+    <app-user-card-item [user]=user (remove)="removeFromUsers(user, index)"></app-user-card-item>
+  </li>
+</ul>

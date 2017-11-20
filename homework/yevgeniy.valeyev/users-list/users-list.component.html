@@ -1,0 +1,17 @@
+<mat-card class="add-user-container">
+    <add-user (onAdd)="addUser($event)"></add-user>
+</mat-card>
+<mat-list>
+    <mat-list-item
+      (click)="openUserDetails(user.id)"
+      *ngFor="let user of users">
+      <user-card-short
+        matLine
+        [user]="user"
+        (onDelete)="deleteUser($event)">
+      </user-card-short>
+    </mat-list-item>
+    <mat-list-item *ngIf="users.length === 0" >
+      <em>Users collection is empty</em>
+    </mat-list-item>
+</mat-list>

@@ -1,0 +1,10 @@
+<div class="row">
+  <app-user-card
+    *ngFor="let user of users; let index = index"
+    [user]="user"
+    [itemIndex] = "index"
+    [activeIndex] = "activeCardIndex"
+    (userDelete)="userDelete($event)"
+    (cardClick)="cardClick($event)"
+  ></app-user-card>
+</div>

@@ -1,0 +1,15 @@
+<nav>
+  <a routerLink="login" routerLinkActive="active" routerLinkActiveOptions="{exact: true}"
+     (loggedIn)="doLogin()">
+    login
+  </a>
+
+  <a routerLink="mail" routerLinkActive="active" routerLinkActiveOptions="{exact: true}">
+    mail
+  </a>
+  <a routerLink="users" routerLinkActive="active" routerLinkActiveOptions="{exact: true}">
+    users
+  </a>
+</nav>
+
+<router-outlet></router-outlet>

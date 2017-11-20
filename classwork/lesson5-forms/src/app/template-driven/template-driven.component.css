@@ -1,0 +1,12 @@
+.my {
+  color: red;
+}
+
+.ng-valid {
+  border: green 2px solid;
+}
+
+.ng-invalid
+{
+  border: red 2px solid;
+}

@@ -1,0 +1,48 @@
+<div class="login-screen">
+  <form [formGroup]="form">
+      <mat-form-field>
+        <input
+          type="email"
+          required
+          matInput
+          formControlName="email"
+          class="form-control"
+          [ngClass]="{'is-invalid': email.touched && email.invalid}"
+          id="emailControl"
+          placeholder="Email"
+        >
+        <mat-hint align="end">test@example.com</mat-hint>
+        <mat-error *ngIf="email.touched && email.invalid">
+          <div *ngIf="email.errors.required">
+            Email is required
+          </div>
+          <div *ngIf="email.errors.correctEmail">
+            Invalid email
+          </div>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          type="password"
+          required
+          matInput
+          formControlName="password"
+          class="form-control"
+          id="passwordControl"
+          [ngClass]="{'is-invalid': password.touched && password.invalid}"
+          placeholder="Password"
+        >
+        <mat-error *ngIf="password.touched && password.invalid">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="login()"
+        [disabled]="!form.valid"
+        class="btn btn-primary">
+          Login
+      </button>
+    </form>
+  </div>

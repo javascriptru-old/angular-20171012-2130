@@ -1,0 +1,17 @@
+<div *ngIf="user">
+    <br><hr>
+    {{ user.username }}<br>
+    {{ user.email }}<br>
+    *******************************<br>
+    {{ user.address.street }}<br>
+    {{ user.address.suite }}<br>
+    {{ user.address.city }}<br>
+    {{ user.address.zipcode }}<br>
+    *******************************<br>
+    {{ user.phone }}<br>
+    {{ user.website }}<br>
+    *******************************<br>
+    {{ user.company.name }}<br>
+    {{ user.company.catchPhrase }}<br>
+    {{ user.company.bs }}<br>
+</div>
