@@ -38,5 +38,32 @@ Angular. Что подготовить(или уже знать)?
 
 
 Сдача курсового
-[]
+[16.11]
 [ИМЯ] - [код (github)] - [демо (github-page)]
+Денис Мурзин 
+https://github.com/morf2k7/server-angular-course
+https://github.com/morf2k7/client-angular-course
+http://5.35.77.22:8080 (Демо будет доступно чуть похже)
+
+
+
+[20.11] 
+[ИМЯ] - [код (github)] - [демо (github-page)]
+Дмитрий Рыжаков -  https://github.com/dimitriyRyzhakov/angular-mailbox-copy.git (Демо будет доступно чуть позже)
+Марина Хорькова - [github](https://github.com/va-loo/angular-mail-project) - [demo](http://valoo.ru/)  
+
+
+Дополнительные скринкасты
++ router.navigate
++ роутер: вложеные стейты
+- роутер: реализация почтового клиента
+- rxjs: Observable разные способы создания
+
+
+Дополнительные вопросы:
+
+- f.controls.firstName
+
+- Производительность Angular
+- Change Detection
+- SSR
