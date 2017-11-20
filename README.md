@@ -52,6 +52,11 @@ http://5.35.77.22:8080 (Демо будет доступно чуть похже
 Дмитрий Рыжаков -  https://github.com/dimitriyRyzhakov/angular-mailbox-copy.git (Демо будет доступно чуть позже)
 
 
+[20.11] 
+[ИМЯ] - [код (github)] - [демо (github-page)]
+Александр Романчук -  https://github.com/AlexRomanch/courseWork.git  -  http://195.208.109.61:807/test
+
+
 Дополнительные скринкасты
 + router.navigate
 + роутер: вложеные стейты
