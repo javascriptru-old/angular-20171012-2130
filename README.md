@@ -60,8 +60,6 @@ http://5.35.77.22:8080 (Демо будет доступно чуть похже
 
 Дополнительные вопросы:
 
-- f.controls.firstName
-
-- Производительность Angular
-- Change Detection
+- Производительность Angular +
+- Change Detection +
 - SSR
