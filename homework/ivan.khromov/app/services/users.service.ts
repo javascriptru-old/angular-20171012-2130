@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/finally';
+
+import * as ICustom from '../app.definitions';
 
 @Injectable()
 export class UsersService {
@@ -10,77 +13,75 @@ export class UsersService {
 
   constructor(private _httpClient: HttpClient) {}
 
-  public postUsers(callback?): void {
-      const commonEmail = 'test@test.ru';
-      const commonDescription = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`;
+  private temporaryStorage: any;
+  
 
-      const usersArr = [
-          {
-              fullName: "Mark Smith",
-              email: commonEmail,
-              avatarUrl: "http://shantiyoga.com.ua/wp-content/uploads/2017/08/%D0%BC%D0%B0%D1%82%D0%B8%D1%81.jpg",
-              address: commonDescription,
-              birthdate: new Date(1966, 1, 20)
-          },
-          {
-              fullName: "Andrew Watson",
-              email: commonEmail,
-              avatarUrl: "https://habrastorage.org/files/af9/601/8a6/af96018a68d34f7eae374dc8de3ab151.jpg",
-              address: commonDescription,
-              birthdate: Date.now()
-          },
-          {
-              fullName: "Jane Oliver",
-              email: commonEmail,
-              avatarUrl: "https://www.shumoizolyaciya-kvartiry.ru/sites/default/files/inline-images/Faces-400x400px-1_1-1-scalia-testimonial.jpg",
-              address: commonDescription,
-              birthdate: Date.now()
-          },
-          {
-              fullName: "Frank Sinatra",
-              email: commonEmail,
-              avatarUrl: "https://hashtelegraph.com/wp-content/uploads/2017/08/%D0%B3%D1%80%D0%B0%D0%BD%D1%82-%D0%B1%D0%BB%D0%B5%D0%B9%D1%81%D0%B4%D0%B5%D0%BB.jpg",
-              address: commonDescription,
-              birthdate: Date.now()
-          },
-      ];
+  public postUsers(): Observable<boolean> {
+      return Observable.create((obs) => {
+        const commonEmail = 'test@test.ru';
+        const commonDescription = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`;
 
-      const self = this;
+        const usersArr: ICustom.IUser[] = [
+            {
+                fullName: "Mark Smith",
+                email: commonEmail,
+                avatarUrl: "http://shantiyoga.com.ua/wp-content/uploads/2017/08/%D0%BC%D0%B0%D1%82%D0%B8%D1%81.jpg",
+                address: commonDescription,
+                birthdate: new Date(1966, 1, 20)
+            },
+            {
+                fullName: "Andrew Watson",
+                email: commonEmail,
+                avatarUrl: "https://habrastorage.org/files/af9/601/8a6/af96018a68d34f7eae374dc8de3ab151.jpg",
+                address: commonDescription,
+                birthdate: Date.now()
+            },
+            {
+                fullName: "Jane Oliver",
+                email: commonEmail,
+                avatarUrl: "https://www.shumoizolyaciya-kvartiry.ru/sites/default/files/inline-images/Faces-400x400px-1_1-1-scalia-testimonial.jpg",
+                address: commonDescription,
+                birthdate: Date.now()
+            },
+            {
+                fullName: "Frank Sinatra",
+                email: commonEmail,
+                avatarUrl: "https://hashtelegraph.com/wp-content/uploads/2017/08/%D0%B3%D1%80%D0%B0%D0%BD%D1%82-%D0%B1%D0%BB%D0%B5%D0%B9%D1%81%D0%B4%D0%B5%D0%BB.jpg",
+                address: commonDescription,
+                birthdate: Date.now()
+            },
+        ];
 
-      let makePostAnyway = function(res){
-          console.log("delete_res: ", res);
-          self._httpClient.post(UsersService.URL_BASE, { users : usersArr })
-              .subscribe(res => {
-                  console.log('post_res:', res);
-                  if (callback) callback();
-              });
-      };
+        const self = this;
+        let tmpResponse: any;
 
-      this._httpClient.delete( UsersService.URL_BASE ).subscribe(
-          (res) => makePostAnyway(res),
-          (err) => makePostAnyway(err)
-          );
+        const makePostAnyway = function() {
+            console.log('Clear old users response: ', tmpResponse);
+            self._httpClient.post(UsersService.URL_BASE, { users : usersArr })
+                .subscribe(res => {
+                    console.log('Post default users response:', res);
+                    obs.next(true);
+                });
+        };
+
+        this._httpClient.delete( UsersService.URL_BASE ).finally(() => makePostAnyway()).subscribe(
+            (res) => tmpResponse = res,
+            (err) => tmpResponse = err
+        );
+      });
   }
-  public getUsers(): Observable<User[]> {
+  public getUsers(): Observable<ICustom.IUserModel[]> {
       let self = this;
       const res = Observable.create((observer) => {
-          let tmpUserArr: User[] = [];
-          self._httpClient.get<any[]>(UsersService.URL_BASE + '/users').subscribe((users) => {
-
-              // TODO: я хотел использовать forEach, но ts пишет, что users - не массив.
-              // TODO: можно ли как то указать, что в данном случае это точно массив?
-              // TODO: сделать какой то cast и т.д. пришлось пользоваться старым методом.
-
-              // TODO: ОТВЕТ: например вот так, указав в get генерик <any[]>
-
+          let tmpUserArr: ICustom.IUserModel[] = [];
+          self._httpClient.get<ICustom.IUser[]>(UsersService.URL_BASE + '/users').subscribe((users) => {
               users.forEach((u) => {
-                  tmpUserArr.push(new User(u));
+                  tmpUserArr.push({
+                      isSelected: false,
+                      rowUser: u
+                  } as ICustom.IUserModel);
               });
-
-              // for (let i = 0; i < Object.keys(users).length; i++) {
-              //     tmpUserArr.push(new User(users[i]));
-              // }
 
               observer.next(tmpUserArr);
           });
@@ -88,24 +89,28 @@ export class UsersService {
 
       return res;
   }
-  public deleteUser(id:string, callback?){
-      let resFunc = function(res){
-          console.log("Delete user " + id + " res: ", res);
-          if (callback) callback();
-      };
-      //TODO: есть способ обработать результат в любом случае? как сделать то, что ниже
-      //TODO: элегантнее?
-      this._httpClient.delete( UsersService.URL_BASE + "/users/" + id).subscribe(
-          (res) => resFunc(res),
-          (err) => resFunc(err)
-      );
+  public deleteUser(id: string): Observable<boolean> {
+      return Observable.create((obs) => {
+        let tmpResponse: any;
+
+        const resFunc = function() {
+            console.log('Delete user ' + id + ' response: ', tmpResponse);
+            obs.next(true);
+        };
+
+        this._httpClient.delete( UsersService.URL_BASE + '/users/' + id).finally(() => resFunc()).subscribe(
+            (res) => tmpResponse = res,
+            (err) => tmpResponse = err
+        );
+      });
   }
-
-}
-
-//TODO: корректно ли определять класс модели в сервисе?
-//класс оставлен в учебных целях, представляет модель пользователя
-export class User {
-    public selected:boolean;
-    constructor(public infoObject:any){}
+  public createUser(newUser: ICustom.IUserModel): Observable<boolean> {
+    return Observable.create((obs) => {
+        this._httpClient.post(UsersService.URL_BASE, { users : [ newUser.rowUser ] })
+        .subscribe(res => {
+            console.log('Create user response:', res);
+            obs.next(true);
+        });
+    });
+  }
 }

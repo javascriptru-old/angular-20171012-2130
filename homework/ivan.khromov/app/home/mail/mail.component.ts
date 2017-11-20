@@ -2,6 +2,7 @@ import { LettersService } from '../../services/letters.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -26,7 +27,7 @@ export class MailComponent implements OnInit {
   constructor(private _router: Router,
     private _route: ActivatedRoute,
     private _authService: AuthService,
-    private _letterService: LettersService ) {
+    private _letterService: LettersService) {
     this._route.params.subscribe((prms) => {
       console.log('receivedPrms: ', prms);
       this._selectedFolderId = prms ? prms['folderId'] : null;
@@ -40,6 +41,6 @@ export class MailComponent implements OnInit {
     });
    }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

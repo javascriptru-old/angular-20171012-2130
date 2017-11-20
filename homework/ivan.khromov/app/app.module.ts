@@ -4,6 +4,7 @@ import { LettersService } from './services/letters.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, InjectionToken, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -53,7 +54,9 @@ const routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,
