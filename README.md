@@ -56,6 +56,11 @@ Ivan Boganov -  https://github.com/Linnod/mailbox.git - http://linnod.myds.me:55
 Yevgeniy Valeyev - https://github.com/yevgeniyvaleyev/emailer - https://jsru-ng2-hw1.herokuapp.com 
 
 
+[20.11] 
+[ИМЯ] - [код (github)] - [демо (github-page)]
+Александр Романчук -  https://github.com/AlexRomanch/courseWork.git  -  http://195.208.109.61:807/test
+
+
 Дополнительные скринкасты
 + router.navigate
 + роутер: вложеные стейты
