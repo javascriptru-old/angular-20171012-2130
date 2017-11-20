@@ -49,9 +49,11 @@ http://5.35.77.22:8080 (Демо будет доступно чуть похже
 
 [20.11] 
 [ИМЯ] - [код (github)] - [демо (github-page)]
+
 Дмитрий Рыжаков -  https://github.com/dimitriyRyzhakov/angular-mailbox-copy.git (https://dimitriyryzhakov.github.io/angular-mailbox-copy/users/users-list)
 Ivan Boganov -  https://github.com/Linnod/mailbox.git - http://linnod.myds.me:55543/contacts
 Марина Хорькова - [github](https://github.com/va-loo/angular-mail-project) - [demo](http://valoo.ru/)
+Yevgeniy Valeyev - https://github.com/yevgeniyvaleyev/emailer - https://jsru-ng2-hw1.herokuapp.com 
 
 
 Дополнительные скринкасты
