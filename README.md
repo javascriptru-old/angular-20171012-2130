@@ -55,6 +55,7 @@ Ivan Boganov -  https://github.com/Linnod/mailbox.git - http://linnod.myds.me:55
 Yevgeniy Valeyev - https://github.com/yevgeniyvaleyev/emailer - https://jsru-ng2-hw1.herokuapp.com 
 Александр Романчук -  https://github.com/AlexRomanch/courseWork.git  -  http://195.208.109.61:807/test
 Anna Shchetkina - https://github.com/ShchetkinaAnna/angular-exam/tree/result - http://scad.cloud.parmalogica.ru/angularexam
+Иван Богданов -  https://github.com/IvanBogdan/testtool.git - http://195.208.109.61:807/testshop
 
 
 Дополнительные скринкасты
