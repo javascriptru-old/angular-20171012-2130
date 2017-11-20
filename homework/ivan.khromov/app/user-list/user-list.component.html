@@ -1,11 +1,22 @@
 <h2>Contact list:</h2>
 
-<div *ngIf="!_selectedUser?.infoObject; else screenUserDetails" class="app-user-list">
+<form [formGroup]="formGroupAddUser">
+  <input formControlName="firstName" placeholder="Enter name">
+  <input formControlName="lastName" placeholder="Enter lastname">
+  <input formControlName="sex"  placeholder="Male of female">
+  <input formControlName="birthDate" placeholder="Like '1994-07-18'">
+  <input formControlName="email" placeholder="test@test.ru">
+  <button (click)="addUser()" type="button">Добавить пользователя</button>
+</form>
+
+
+<div *ngIf="!_selectedUser?.rowUser; else screenUserDetails" class="app-user-list">
   <ul *ngIf="userList?.length > 0; else showErrorScreen">
-    <li *ngFor="let u of userList; let idx = index" [class]="u.selected ? 'selected':''" (click)="selectUser(u, idx);">
+    <li *ngFor="let u of userList; let idx = index">
       <app-user-card
               [user]="u"
               (onRemove)="deleteUser($event)"
+              (onSelect)="selectUser(u, idx)"
               >
       </app-user-card>
     </li>
@@ -15,6 +26,6 @@
   </ng-template>
 </div>
 <ng-template #screenUserDetails>
-  <h2>User {{_selectedUser.infoObject?.fullName}} details: </h2>
-  <p>{{_selectedUser.infoObject?.address}}</p>
+  <h2>User {{_selectedUser.rowUser?.fullName}} details: </h2>
+  <p>{{_selectedUser.rowUser?.address}}</p>
 </ng-template>

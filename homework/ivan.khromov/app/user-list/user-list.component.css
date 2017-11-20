@@ -24,3 +24,11 @@ li:hover {
     border-left: 2px solid gray;
     border-radius: 5px;
 }
+
+input.ng-dirty.ng-invalid {
+    border: 2px solid red;
+}
+
+input.ng-dirty.ng-valid {
+    border: 2px solid green;
+}
